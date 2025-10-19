@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://bmjftyn2dkqhx"]
+
+[ext_resource type="Script" path="res://scripts/EnemyData.gd" id="1_fbcmj"]
+
+[resource]
+script = ExtResource("1_fbcmj")
+id = "goblin_chief"
+enemy_name = "Goblin Chief"
+enemy_type = "Normal"
+color = Color(0.333333, 0.545098, 0.184314, 1)
+sprite_path = "res://assets/portraits/goblinchief.png"
+base_health = 60
+health_scaling = 1.25
+coin_reward = 15
+attack_frequency = 6
+attack_damage = 10
+attack_description = "Commands his troops with authority."
+has_special_ability = true
+special_ability_name = "Call Reinforcements"
+special_ability_description = "Summons a goblin ally after 5 turns if not defeated."
+special_ability_trigger = "turn_5"
+special_ability_data = {}
+places_obstacles = false
+obstacle_type = ""
+obstacle_frequency = 0
+obstacle_count = 0
+can_summon = true
+summon_enemy_id = "goblin"
+summon_delay = 5
+summon_count = 1

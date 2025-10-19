@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://dtkpywh7j6sq4"]
+
+[ext_resource type="Script" path="res://scripts/CharacterData.gd" id="1_ai0uu"]
+
+[resource]
+script = ExtResource("1_ai0uu")
+id = "cleric"
+character_name = "Jeremiah Peacekeeper"
+character_class = "Cleric"
+class_type = "Support"
+color = Color(0.945098, 0.768627, 0.0588235, 1)
+portrait_path = "res://assets/portraits/cleric.png"
+ability_name = "Healing Light"
+ability_description = "Restores health to the party."
+ability_value_tier1 = 30.0
+ability_value_tier2 = 45.0
+ability_value_tier3 = 60.0
+ability_secondary_tier1 = 0.0
+ability_secondary_tier2 = 0.0
+ability_secondary_tier3 = 0.0
+ability_duration_tier1 = 0
+ability_duration_tier2 = 0
+ability_duration_tier3 = 0
+unlock_cost = 0
+unlock_tier = 0
+is_starter = true
+special_data = {}

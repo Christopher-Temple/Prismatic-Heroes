@@ -1,0 +1,376 @@
+[gd_scene load_steps=13 format=3 uid="uid://jkkonv2sljg4"]
+
+[ext_resource type="Script" path="res://scripts/BattleScene.gd" id="1_lecth"]
+[ext_resource type="PackedScene" uid="uid://dkfwlnhiyaafu" path="res://scenes/puzzle_grid.tscn" id="2_5ni24"]
+[ext_resource type="Texture2D" uid="uid://v5gts4t5ndqx" path="res://assets/portraits/berserker.png" id="2_yu3gp"]
+[ext_resource type="FontFile" uid="uid://brfvbtde0o65k" path="res://assets/fonts/FiraCode-Regular.ttf" id="4_ihcf5"]
+[ext_resource type="FontFile" uid="uid://dvxbp285xmtig" path="res://assets/fonts/Knights Quest.ttf" id="5_ktfci"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_65b73"]
+bg_color = Color(0.0862612, 0.0928061, 0.113046, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.934474, 0.714294, 0.0739198, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x7w0q"]
+bg_color = Color(0.0723144, 0.0708743, 0.0708743, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.493211, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fmqb4"]
+bg_color = Color(0.316706, 0.310399, 0.310399, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5g10p"]
+bg_color = Color(0.905882, 0.298039, 0.235294, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hwlri"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.975206, 0.885145, 0.551738, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8a7x"]
+bg_color = Color(0.0705882, 0.0705882, 0.0705882, 0.607843)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xtvga"]
+bg_color = Color(0.0994691, 0.0994691, 0.0994691, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.418536, 0, 0, 1)
+
+[node name="BattleScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lecth")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101961, 0.101961, 0.180392, 1)
+
+[node name="CharacterPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 220.0
+offset_bottom = -20.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_65b73")
+
+[node name="Character1" type="VBoxContainer" parent="CharacterPanel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 190.0
+offset_bottom = 230.0
+alignment = 1
+
+[node name="Portrait" type="TextureRect" parent="CharacterPanel/Character1"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("2_yu3gp")
+stretch_mode = 5
+
+[node name="NameLabel" type="Label" parent="CharacterPanel/Character1"]
+layout_mode = 2
+text = "Berserker"
+horizontal_alignment = 1
+
+[node name="PowerBar" type="ProgressBar" parent="CharacterPanel/Character1"]
+custom_minimum_size = Vector2(160, 20)
+layout_mode = 2
+value = 50.0
+show_percentage = false
+
+[node name="PowerLabel" type="Label" parent="CharacterPanel/Character1"]
+custom_minimum_size = Vector2(160, 20)
+layout_mode = 2
+text = "50/100"
+
+[node name="Character2" type="VBoxContainer" parent="CharacterPanel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 220.0
+offset_right = 190.0
+offset_bottom = 481.0
+alignment = 1
+
+[node name="Portrait" type="TextureRect" parent="CharacterPanel/Character2"]
+layout_mode = 2
+texture = ExtResource("2_yu3gp")
+stretch_mode = 5
+
+[node name="NameLabel" type="Label" parent="CharacterPanel/Character2"]
+layout_mode = 2
+text = "Berserker"
+horizontal_alignment = 1
+
+[node name="PowerBar" type="ProgressBar" parent="CharacterPanel/Character2"]
+layout_mode = 2
+value = 50.0
+
+[node name="PowerLabel" type="Label" parent="CharacterPanel/Character2"]
+layout_mode = 2
+text = "50/100"
+
+[node name="Character3" type="VBoxContainer" parent="CharacterPanel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 460.0
+offset_right = 190.0
+offset_bottom = 721.0
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Portrait" type="TextureRect" parent="CharacterPanel/Character3"]
+layout_mode = 2
+texture = ExtResource("2_yu3gp")
+stretch_mode = 5
+
+[node name="NameLabel" type="Label" parent="CharacterPanel/Character3"]
+layout_mode = 2
+text = "Berserker"
+horizontal_alignment = 1
+
+[node name="PowerBar" type="ProgressBar" parent="CharacterPanel/Character3"]
+layout_mode = 2
+value = 50.0
+
+[node name="PowerLabel" type="Label" parent="CharacterPanel/Character3"]
+layout_mode = 2
+text = "50/100"
+
+[node name="PuzzleGrid" parent="." instance=ExtResource("2_5ni24")]
+position = Vector2(250, 170)
+
+[node name="EnemyPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -220.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x7w0q")
+
+[node name="Enemy1" type="VBoxContainer" parent="EnemyPanel"]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 190.0
+offset_bottom = 200.0
+alignment = 1
+
+[node name="Portrait" type="TextureRect" parent="EnemyPanel/Enemy1"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="NameLabel" type="Label" parent="EnemyPanel/Enemy1"]
+custom_minimum_size = Vector2(180, 25)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.905882, 0.298039, 0.235294, 1)
+horizontal_alignment = 1
+
+[node name="HealthBar" type="ProgressBar" parent="EnemyPanel/Enemy1"]
+custom_minimum_size = Vector2(160, 20)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_fmqb4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5g10p")
+
+[node name="Enemy2" type="VBoxContainer" parent="EnemyPanel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 235.0
+offset_right = 190.0
+offset_bottom = 435.0
+alignment = 1
+
+[node name="Portrait" type="TextureRect" parent="EnemyPanel/Enemy2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="NameLabel" type="Label" parent="EnemyPanel/Enemy2"]
+custom_minimum_size = Vector2(180, 25)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.905882, 0.298039, 0.235294, 1)
+horizontal_alignment = 1
+
+[node name="HealthBar" type="ProgressBar" parent="EnemyPanel/Enemy2"]
+custom_minimum_size = Vector2(160, 20)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_fmqb4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5g10p")
+
+[node name="Enemy3" type="VBoxContainer" parent="EnemyPanel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 470.0
+offset_right = 190.0
+offset_bottom = 670.0
+alignment = 1
+
+[node name="Portrait" type="TextureRect" parent="EnemyPanel/Enemy3"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="NameLabel" type="Label" parent="EnemyPanel/Enemy3"]
+custom_minimum_size = Vector2(180, 25)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.905882, 0.298039, 0.235294, 1)
+horizontal_alignment = 1
+
+[node name="HealthBar" type="ProgressBar" parent="EnemyPanel/Enemy3"]
+custom_minimum_size = Vector2(160, 20)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_fmqb4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5g10p")
+
+[node name="NextPiecePreview" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -400.0
+offset_top = 10.0
+offset_right = -200.0
+offset_bottom = 130.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hwlri")
+
+[node name="Label" type="Label" parent="NextPiecePreview"]
+layout_mode = 0
+offset_top = 5.0
+offset_right = 200.0
+offset_bottom = 28.0
+text = "NEXT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PreviewContainer" type="Control" parent="NextPiecePreview"]
+anchors_preset = 0
+offset_left = 50.0
+offset_top = 30.0
+offset_right = 150.0
+offset_bottom = 110.0
+
+[node name="InfoPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 240.0
+offset_top = -70.0
+offset_right = -240.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_a8a7x")
+
+[node name="TurnLabel" type="Label" parent="InfoPanel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 5.0
+offset_right = 99.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(0.180392, 0.8, 0.443137, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_ihcf5")
+theme_override_font_sizes/font_size = 13
+text = "Player Turn"
+
+[node name="ComboLabel" type="Label" parent="InfoPanel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 30.0
+offset_right = 50.0
+offset_bottom = 53.0
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_ihcf5")
+theme_override_font_sizes/font_size = 16
+text = "Combo: 0x"
+
+[node name="EnemyCountLabel" type="Label" parent="InfoPanel"]
+layout_mode = 0
+offset_left = 675.0
+offset_top = 20.0
+offset_right = 774.0
+offset_bottom = 43.0
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_ihcf5")
+theme_override_font_sizes/font_size = 16
+text = "Enemies: 3"
+horizontal_alignment = 2
+
+[node name="GameOverPanel" type="Panel" parent="."]
+visible = false
+z_index = 10
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -150.0
+offset_right = 250.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xtvga")
+
+[node name="Title" type="Label" parent="GameOverPanel"]
+layout_mode = 0
+offset_top = 20.0
+offset_right = 500.0
+offset_bottom = 80.0
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_ktfci")
+theme_override_font_sizes/font_size = 56
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="Message" type="Label" parent="GameOverPanel"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 100.0
+offset_right = 450.0
+offset_bottom = 220.0
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="GameOverPanel"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 230.0
+offset_right = 350.0
+offset_bottom = 280.0
+alignment = 1
+
+[node name="QuitButton" type="Button" parent="GameOverPanel/Buttons"]
+layout_mode = 2
+text = "RETURN"

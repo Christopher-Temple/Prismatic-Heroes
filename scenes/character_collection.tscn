@@ -1,0 +1,92 @@
+[gd_scene load_steps=6 format=3 uid="uid://dt46p51aam74e"]
+
+[ext_resource type="Script" path="res://scripts/character_collection.gd" id="1_hvw72"]
+[ext_resource type="PackedScene" uid="uid://dryyulleo7ct8" path="res://scenes/custom_tooltip.tscn" id="2_0l5on"]
+[ext_resource type="FontFile" uid="uid://dvxbp285xmtig" path="res://assets/fonts/Knights Quest.ttf" id="2_ml17r"]
+[ext_resource type="FontFile" uid="uid://brfvbtde0o65k" path="res://assets/fonts/FiraCode-Regular.ttf" id="3_yokda"]
+[ext_resource type="Theme" uid="uid://bif1vn82s31vk" path="res://scenes/GUI.tres" id="4_8dqud"]
+
+[node name="CharacterCollection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hvw72")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101961, 0.101961, 0.180392, 1)
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 20.0
+offset_bottom = 80.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.952941, 0.611765, 0.0705882, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_ml17r")
+theme_override_font_sizes/font_size = 58
+text = "Character Collection"
+horizontal_alignment = 1
+
+[node name="CoinsLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_top = 30.0
+offset_right = -20.0
+offset_bottom = 70.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.952941, 0.611765, 0.0705882, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_yokda")
+theme_override_font_sizes/font_size = 26
+horizontal_alignment = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -600.0
+offset_top = -260.0
+offset_right = 600.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 15
+columns = 8
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -60.0
+offset_right = 160.0
+offset_bottom = -10.0
+grow_vertical = 0
+theme = ExtResource("4_8dqud")
+text = "Back"
+
+[node name="CustomTooltip" parent="." instance=ExtResource("2_0l5on")]
+layout_mode = 1

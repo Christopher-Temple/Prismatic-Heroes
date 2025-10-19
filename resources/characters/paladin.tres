@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://dj1585cebjpe8"]
+
+[ext_resource type="Script" path="res://scripts/CharacterData.gd" id="1_5bjpa"]
+
+[resource]
+script = ExtResource("1_5bjpa")
+id = "paladin"
+character_name = "Aldric the Pure"
+character_class = "Paladin"
+class_type = "Tank"
+color = Color(0.607843, 0.34902, 0.713726, 1)
+portrait_path = "res://assets/portraits/paladin.png"
+ability_name = "Purifying Light"
+ability_description = "Removes enemy-placed obstacles from the board."
+ability_value_tier1 = 1.0
+ability_value_tier2 = 2.0
+ability_value_tier3 = 0.0
+ability_secondary_tier1 = 0.0
+ability_secondary_tier2 = 0.0
+ability_secondary_tier3 = 0.0
+ability_duration_tier1 = 0
+ability_duration_tier2 = 0
+ability_duration_tier3 = 0
+unlock_cost = 200
+unlock_tier = 1
+is_starter = false
+special_data = {}

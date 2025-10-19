@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://bv4rc35yhpuv0"]
+
+[ext_resource type="Script" path="res://scripts/EnemyData.gd" id="1_rp21x"]
+
+[resource]
+script = ExtResource("1_rp21x")
+id = "demon_boss"
+enemy_name = "Infernal Tyrant"
+enemy_type = "Boss"
+color = Color(0.717647, 0.109804, 0.109804, 1)
+sprite_path = "res://assets/portraits/demontyrant.png"
+base_health = 220
+health_scaling = 1.3
+coin_reward = 100
+attack_frequency = 7
+attack_damage = 22
+attack_description = "Unleashes hellfire."
+has_special_ability = true
+special_ability_name = "Demonic Presence"
+special_ability_description = "Increases attack damage by 2 every 5 turns."
+special_ability_trigger = "every_5_turns"
+special_ability_data = {}
+places_obstacles = true
+obstacle_type = "corruption"
+obstacle_frequency = 2
+obstacle_count = 2
+can_summon = false
+summon_enemy_id = ""
+summon_delay = 0
+summon_count = 0

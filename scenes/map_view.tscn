@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0qrcbyk0wa1s"]
+
+[ext_resource type="Script" path="res://scripts/map_view.gd" id="1_cgoy7"]
+[ext_resource type="FontFile" uid="uid://dvxbp285xmtig" path="res://assets/fonts/Knights Quest.ttf" id="2_p3cs0"]
+
+[node name="MapView" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cgoy7")
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -436.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101961, 0.101961, 0.180392, 1)
+
+[node name="MapContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+
+[node name="TitleOverlay" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TitleLabel" type="Label" parent="TitleOverlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -484.0
+offset_top = -89.0
+offset_right = 516.0
+offset_bottom = 111.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.952941, 0.611765, 0.0705882, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_p3cs0")
+theme_override_font_sizes/font_size = 41
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -60.0
+offset_right = 65.0
+offset_bottom = -29.0
+grow_vertical = 0
+text = "Back"

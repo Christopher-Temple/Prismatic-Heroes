@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://d116uefy8ej4n"]
+
+[ext_resource type="Script" path="res://scripts/CharacterData.gd" id="1_5jx68"]
+
+[resource]
+script = ExtResource("1_5jx68")
+id = "druid"
+character_name = "Willow Thornweave"
+character_class = "Druid"
+class_type = "Support"
+color = Color(0.0769905, 0.38009, 0.202099, 1)
+portrait_path = "res://assets/portraits/druid.png"
+ability_name = "Barkskin"
+ability_description = " Heals party over time and damages attackers."
+ability_value_tier1 = 5.0
+ability_value_tier2 = 7.0
+ability_value_tier3 = 10.0
+ability_secondary_tier1 = 5.0
+ability_secondary_tier2 = 7.0
+ability_secondary_tier3 = 10.0
+ability_duration_tier1 = 3
+ability_duration_tier2 = 4
+ability_duration_tier3 = 0
+unlock_cost = 200
+unlock_tier = 1
+is_starter = false
+special_data = {}

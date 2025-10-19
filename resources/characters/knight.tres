@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://c87rll5ys3g7"]
+
+[ext_resource type="Script" path="res://scripts/CharacterData.gd" id="1_qal26"]
+
+[resource]
+script = ExtResource("1_qal26")
+id = "knight"
+character_name = "Sir Gareth"
+character_class = "Knight"
+class_type = "Tank"
+color = Color(0.901961, 0.223529, 0.27451, 1)
+portrait_path = "res://assets/portraits/knight.png"
+ability_name = "Shield Wall"
+ability_description = "Absorbs incoming damage for the party."
+ability_value_tier1 = 25.0
+ability_value_tier2 = 37.0
+ability_value_tier3 = 50.0
+ability_secondary_tier1 = 0.0
+ability_secondary_tier2 = 0.0
+ability_secondary_tier3 = 0.0
+ability_duration_tier1 = 0
+ability_duration_tier2 = 0
+ability_duration_tier3 = 0
+unlock_cost = 0
+unlock_tier = 0
+is_starter = true
+special_data = {}

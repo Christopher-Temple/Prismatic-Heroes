@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://dfugg2sh167qt"]
+
+[ext_resource type="Script" path="res://scripts/EnemyData.gd" id="1_6vdw2"]
+
+[resource]
+script = ExtResource("1_6vdw2")
+id = "skeleton"
+enemy_name = "Skeleton Archer"
+enemy_type = "Normal"
+color = Color(0.4, 0.733333, 0.415686, 1)
+sprite_path = "res://assets/portraits/skeletonarcher.png"
+base_health = 25
+health_scaling = 1.2
+coin_reward = 6
+attack_frequency = 4
+attack_damage = 6
+attack_description = "Fires bone arrows rapidly."
+has_special_ability = false
+special_ability_name = ""
+special_ability_description = ""
+special_ability_trigger = ""
+special_ability_data = {}
+places_obstacles = false
+obstacle_type = ""
+obstacle_frequency = 0
+obstacle_count = 0
+can_summon = false
+summon_enemy_id = ""
+summon_delay = 0
+summon_count = 0

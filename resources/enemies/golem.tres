@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://b53s425b1wu2x"]
+
+[ext_resource type="Script" path="res://scripts/EnemyData.gd" id="1_y36r4"]
+
+[resource]
+script = ExtResource("1_y36r4")
+id = "golem"
+enemy_name = "Stone Golem"
+enemy_type = "Elite"
+color = Color(0.329412, 0.431373, 0.478431, 1)
+sprite_path = "res://assets/portraits/stonegolem.png"
+base_health = 80
+health_scaling = 1.25
+coin_reward = 20
+attack_frequency = 8
+attack_damage = 15
+attack_description = "Pounds with massive stone fists."
+has_special_ability = true
+special_ability_name = "Stone Skin"
+special_ability_description = "Takes 50% reduced damage from all sources."
+special_ability_trigger = "passive"
+special_ability_data = {
+"damage_reduction": 0.5
+}
+places_obstacles = true
+obstacle_type = "rock"
+obstacle_frequency = 2
+obstacle_count = 1
+can_summon = false
+summon_enemy_id = ""
+summon_delay = 0
+summon_count = 0

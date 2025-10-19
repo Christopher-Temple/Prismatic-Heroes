@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://xs1ao3vdr1t"]
+
+[ext_resource type="Script" path="res://scripts/CharacterData.gd" id="1_ny3du"]
+
+[resource]
+script = ExtResource("1_ny3du")
+id = "monk"
+character_name = "Zen Master Kai"
+character_class = "Monk"
+class_type = "Utility"
+color = Color(0.827451, 0.329412, 0, 1)
+portrait_path = "res://assets/portraits/monk.png"
+ability_name = "Temporal Mastery"
+ability_description = "Extends all active buffs and debuffs."
+ability_value_tier1 = 0.0
+ability_value_tier2 = 0.0
+ability_value_tier3 = 0.0
+ability_secondary_tier1 = 0.0
+ability_secondary_tier2 = 0.0
+ability_secondary_tier3 = 0.0
+ability_duration_tier1 = 1
+ability_duration_tier2 = 2
+ability_duration_tier3 = 3
+unlock_cost = 400
+unlock_tier = 2
+is_starter = false
+special_data = {}

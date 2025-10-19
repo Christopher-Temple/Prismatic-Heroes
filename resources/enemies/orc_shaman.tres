@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://cejsoecb30d13"]
+
+[ext_resource type="Script" path="res://scripts/EnemyData.gd" id="1_t1gr4"]
+
+[resource]
+script = ExtResource("1_t1gr4")
+id = "orc_shaman"
+enemy_name = "Orc Shaman"
+enemy_type = "Elite"
+color = Color(0.364706, 0.25098, 0.215686, 1)
+sprite_path = "res://assets/portraits/orcshaman.png"
+base_health = 50
+health_scaling = 1.25
+coin_reward = 18
+attack_frequency = 7
+attack_damage = 8
+attack_description = "Casts dark magic spells."
+has_special_ability = true
+special_ability_name = "Curse Blocks"
+special_ability_description = "Every 3 attacks, randomly converts 3 character blocks to neutral."
+special_ability_trigger = "every_3_attacks"
+special_ability_data = {
+"blocks_to_convert": 3
+}
+places_obstacles = false
+obstacle_type = ""
+obstacle_frequency = 0
+obstacle_count = 0
+can_summon = false
+summon_enemy_id = ""
+summon_delay = 0
+summon_count = 0

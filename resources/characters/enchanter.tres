@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://bjojd3s8pek85"]
+
+[ext_resource type="Script" path="res://scripts/CharacterData.gd" id="1_duhgv"]
+
+[resource]
+script = ExtResource("1_duhgv")
+id = "enchanter"
+character_name = "Callum Runekeeper"
+character_class = "Enchanter"
+class_type = "Support"
+color = Color(0.203922, 0.596078, 0.858824, 1)
+portrait_path = "res://assets/portraits/enchanter.png"
+ability_name = "Mesmerize"
+ability_description = "Stuns enemy, preventing attacks. Bosses only stunned for 1 turn."
+ability_value_tier1 = 0.0
+ability_value_tier2 = 0.0
+ability_value_tier3 = 0.0
+ability_secondary_tier1 = 0.0
+ability_secondary_tier2 = 0.0
+ability_secondary_tier3 = 0.0
+ability_duration_tier1 = 1
+ability_duration_tier2 = 2
+ability_duration_tier3 = 3
+unlock_cost = 400
+unlock_tier = 2
+is_starter = false
+special_data = {}

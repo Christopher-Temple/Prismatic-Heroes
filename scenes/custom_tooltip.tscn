@@ -1,0 +1,115 @@
+[gd_scene load_steps=4 format=3 uid="uid://dryyulleo7ct8"]
+
+[ext_resource type="Script" path="res://scripts/custom_tooltip.gd" id="1_k30gm"]
+[ext_resource type="FontFile" uid="uid://brfvbtde0o65k" path="res://assets/fonts/FiraCode-Regular.ttf" id="2_xxtof"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2sba2"]
+bg_color = Color(0.172549, 0.243137, 0.313726, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.952941, 0.611765, 0.0705882, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_offset = Vector2(2, 2)
+
+[node name="CustomTooltip" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -980.0
+offset_bottom = -470.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_k30gm")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2sba2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 10.0
+offset_right = -8.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="TitleLabel" type="Label" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.952941, 0.611765, 0.0705882, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_xxtof")
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 2
+
+[node name="ClassLabel" type="Label" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.741176, 0.764706, 0.780392, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_xxtof")
+theme_override_font_sizes/font_size = 16
+autowrap_mode = 2
+
+[node name="LevelLabel" type="Label" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92549, 0.941176, 0.945098, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_xxtof")
+theme_override_font_sizes/font_size = 14
+autowrap_mode = 2
+
+[node name="AbilityNameLabel" type="Label" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.706094, 0.434235, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_xxtof")
+theme_override_font_sizes/font_size = 14
+autowrap_mode = 2
+
+[node name="AbilityDescLabel" type="Label" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_xxtof")
+theme_override_font_sizes/font_size = 12
+autowrap_mode = 2
+
+[node name="StatsLabel" type="Label" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92549, 0.941176, 0.945098, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_xxtof")
+theme_override_font_sizes/font_size = 12
+autowrap_mode = 2
+
+[node name="UnlockLabel" type="Label" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92549, 0.941176, 0.945098, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_xxtof")
+theme_override_font_sizes/font_size = 12
+autowrap_mode = 2

@@ -1,0 +1,213 @@
+[gd_scene load_steps=8 format=3 uid="uid://dm45prvq2ug2f"]
+
+[ext_resource type="PackedScene" uid="uid://dryyulleo7ct8" path="res://scenes/custom_tooltip.tscn" id="1_5a0jw"]
+[ext_resource type="Script" path="res://scripts/party_select.gd" id="1_l2cmv"]
+[ext_resource type="FontFile" uid="uid://brfvbtde0o65k" path="res://assets/fonts/FiraCode-Regular.ttf" id="2_4ro11"]
+[ext_resource type="Theme" uid="uid://bif1vn82s31vk" path="res://scenes/GUI.tres" id="3_qip8r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2kjv2"]
+bg_color = Color(0.172549, 0.243137, 0.313726, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.952941, 0.611765, 0.0705882, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oqaj5"]
+bg_color = Color(0.203922, 0.286275, 0.368627, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jlol"]
+bg_color = Color(0.172549, 0.243137, 0.313726, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.952941, 0.611765, 0.0705882, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="PartySelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l2cmv")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101961, 0.101961, 0.180392, 1)
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 20.0
+offset_bottom = 80.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.952941, 0.611765, 0.0705882, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_4ro11")
+theme_override_font_sizes/font_size = 46
+text = "SELECT YOUR PARTY"
+horizontal_alignment = 1
+
+[node name="SelectedPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 40.0
+offset_top = 100.0
+offset_right = -40.0
+offset_bottom = 300.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2kjv2")
+
+[node name="SelectedTitle" type="Label" parent="SelectedPanel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 1190.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.92549, 0.941176, 0.945098, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_4ro11")
+theme_override_font_sizes/font_size = 24
+text = "SELECTED PARTY (0/3)"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SelectedPanel"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 1150.0
+offset_bottom = 190.0
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Slot1" type="Panel" parent="SelectedPanel/HBoxContainer"]
+custom_minimum_size = Vector2(120, 140)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_oqaj5")
+
+[node name="ColorIndicator" type="ColorRect" parent="SelectedPanel/HBoxContainer/Slot1"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 8.0
+grow_horizontal = 2
+
+[node name="Slot2" type="Panel" parent="SelectedPanel/HBoxContainer"]
+custom_minimum_size = Vector2(120, 140)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_oqaj5")
+
+[node name="ColorIndicator" type="ColorRect" parent="SelectedPanel/HBoxContainer/Slot2"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 8.0
+grow_horizontal = 2
+
+[node name="Slot3" type="Panel" parent="SelectedPanel/HBoxContainer"]
+custom_minimum_size = Vector2(120, 140)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_oqaj5")
+
+[node name="ColorIndicator" type="ColorRect" parent="SelectedPanel/HBoxContainer/Slot3"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 8.0
+grow_horizontal = 2
+
+[node name="AvailablePanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -600.0
+offset_top = -40.0
+offset_right = 600.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2jlol")
+
+[node name="AvailableTitle" type="Label" parent="AvailablePanel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 1190.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.92549, 0.941176, 0.945098, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_4ro11")
+theme_override_font_sizes/font_size = 24
+text = "AVAILABLE CHARACTERS"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="AvailablePanel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 50.0
+offset_right = 1190.0
+offset_bottom = 310.0
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="AvailablePanel/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 15
+columns = 8
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -60.0
+offset_right = 160.0
+offset_bottom = -10.0
+grow_vertical = 0
+focus_mode = 0
+theme = ExtResource("3_qip8r")
+text = "Back"
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1000.0
+offset_top = 660.0
+offset_right = 1240.0
+offset_bottom = 710.0
+focus_mode = 0
+theme = ExtResource("3_qip8r")
+disabled = true
+text = "Start Adventure"
+
+[node name="CustomTooltip" parent="." instance=ExtResource("1_5a0jw")]
+layout_mode = 1

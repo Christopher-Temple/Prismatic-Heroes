@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://dr72rqir6epue"]
+
+[ext_resource type="Script" path="res://scripts/EnemyData.gd" id="1_lhp3c"]
+
+[resource]
+script = ExtResource("1_lhp3c")
+id = "spider"
+enemy_name = "Giant Spider"
+enemy_type = "Normal"
+color = Color(0.290196, 0.0784314, 0.54902, 1)
+sprite_path = "res://assets/portraits/giantspider.png"
+base_health = 28
+health_scaling = 1.2
+coin_reward = 6
+attack_frequency = 5
+attack_damage = 7
+attack_description = "Bites with venomous fangs."
+has_special_ability = false
+special_ability_name = ""
+special_ability_description = ""
+special_ability_trigger = ""
+special_ability_data = {}
+places_obstacles = true
+obstacle_type = "web"
+obstacle_frequency = 3
+obstacle_count = 1
+can_summon = false
+summon_enemy_id = ""
+summon_delay = 0
+summon_count = 0

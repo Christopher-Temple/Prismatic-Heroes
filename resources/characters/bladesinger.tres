@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://b0fj5xuvec4uf"]
+
+[ext_resource type="Script" path="res://scripts/CharacterData.gd" id="1_nvwxk"]
+
+[resource]
+script = ExtResource("1_nvwxk")
+id = "bladesinger"
+character_name = "Sylvara Windstrike"
+character_class = "Bladesinger"
+class_type = "Hybrid"
+color = Color(0.927686, 0.49967, 0.427237, 1)
+portrait_path = "res://assets/portraits/bladesinger.png"
+ability_name = "Bladesong"
+ability_description = "Deals damage to random enemy and buffs random ally's next match."
+ability_value_tier1 = 2.0
+ability_value_tier2 = 4.0
+ability_value_tier3 = 6.0
+ability_secondary_tier1 = 2.0
+ability_secondary_tier2 = 4.0
+ability_secondary_tier3 = 6.0
+ability_duration_tier1 = 0
+ability_duration_tier2 = 0
+ability_duration_tier3 = 0
+unlock_cost = 600
+unlock_tier = 3
+is_starter = false
+special_data = {}

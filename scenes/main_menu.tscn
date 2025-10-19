@@ -1,0 +1,96 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpqyyunch3gdq"]
+
+[ext_resource type="Texture2D" uid="uid://cm1qm1ortvqd4" path="res://assets/menus/Title.png" id="1_3lrr6"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_tls2i"]
+[ext_resource type="Theme" uid="uid://bif1vn82s31vk" path="res://scenes/GUI.tres" id="2_2wp0h"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tls2i")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101961, 0.101961, 0.180392, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(625, 99)
+scale = Vector2(0.645455, 0.645455)
+texture = ExtResource("1_3lrr6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 491.0
+offset_top = 300.0
+offset_right = 750.0
+offset_bottom = 578.0
+
+[node name="ContinueButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_2wp0h")
+text = "Continue Adventure"
+
+[node name="NewRunButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_2wp0h")
+text = "New  Adventure"
+
+[node name="CharactersButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_2wp0h")
+text = "Characters"
+
+[node name="EnemyButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_2wp0h")
+text = "Enemies"
+
+[node name="StatisticsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_2wp0h")
+text = "Statistics"
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_2wp0h")
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_2wp0h")
+text = "Exit "
+
+[node name="Footer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 671.0
+offset_right = 1278.0
+offset_bottom = 711.0
+
+[node name="CoinsLabel" type="Label" parent="Footer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HighestFloorLabel" type="Label" parent="Footer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VersionLabel" type="Label" parent="Footer"]
+layout_mode = 2
+size_flags_horizontal = 3

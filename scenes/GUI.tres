@@ -1,0 +1,35 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bif1vn82s31vk"]
+
+[ext_resource type="FontFile" uid="uid://dvxbp285xmtig" path="res://assets/fonts/Knights Quest.ttf" id="1_ui82i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4wby"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.0588235, 0.203922, 0.376471, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.956863, 0.635294, 0.380392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjtoy"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.0862745, 0.129412, 0.243137, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0588235, 0.203922, 0.376471, 1)
+
+[resource]
+Button/colors/font_color = Color(0.917647, 0.917647, 0.917647, 1)
+Button/colors/font_pressed_color = Color(0.913725, 0.270588, 0.376471, 1)
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_ui82i")
+Button/styles/hover = SubResource("StyleBoxFlat_m4wby")
+Button/styles/normal = SubResource("StyleBoxFlat_gjtoy")

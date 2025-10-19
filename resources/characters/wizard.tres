@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://cbaxvwskuubhw"]
+
+[ext_resource type="Script" path="res://scripts/CharacterData.gd" id="1_fjskr"]
+
+[resource]
+script = ExtResource("1_fjskr")
+id = "wizard"
+character_name = "Thaddeus Greybeard"
+character_class = "Wizard"
+class_type = "DPS"
+color = Color(0.270588, 0.482353, 0.615686, 1)
+portrait_path = "res://assets/portraits/wizard.png"
+ability_name = "Meteor Storm"
+ability_description = "Deals damage and removes random blocks from the board."
+ability_value_tier1 = 10.0
+ability_value_tier2 = 15.0
+ability_value_tier3 = 20.0
+ability_secondary_tier1 = 10.0
+ability_secondary_tier2 = 15.0
+ability_secondary_tier3 = 0.0
+ability_duration_tier1 = 0
+ability_duration_tier2 = 0
+ability_duration_tier3 = 0
+unlock_cost = 0
+unlock_tier = 0
+is_starter = true
+special_data = {}

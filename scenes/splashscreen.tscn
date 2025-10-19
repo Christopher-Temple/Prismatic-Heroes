@@ -1,0 +1,155 @@
+[gd_scene load_steps=9 format=3 uid="uid://b388uk00s52gn"]
+
+[ext_resource type="Script" path="res://scripts/splashscreen.gd" id="1_kfn3a"]
+[ext_resource type="Texture2D" uid="uid://cm1qm1ortvqd4" path="res://assets/menus/Title.png" id="2_kr7j3"]
+[ext_resource type="Texture2D" uid="uid://dxxc1tuta3h1h" path="res://assets/menus/projectmayhem.png" id="3_2855g"]
+[ext_resource type="Texture2D" uid="uid://bpd8e3343edj4" path="res://assets/menus/godot_logo_transparent.png" id="4_fchx1"]
+[ext_resource type="FontFile" uid="uid://dvxbp285xmtig" path="res://assets/fonts/Knights Quest.ttf" id="5_lm3xg"]
+
+[sub_resource type="Animation" id="Animation_nwyyy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pmgames:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("godot:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RichTextLabel:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_51w8s"]
+resource_name = "splash_start"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pmgames:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.43333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("godot:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5, 4.96667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(4.93333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"game_is_ready"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RichTextLabel:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 4.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0sxfp"]
+_data = {
+"RESET": SubResource("Animation_nwyyy"),
+"splash_start": SubResource("Animation_51w8s")
+}
+
+[node name="Splashscreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kfn3a")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101961, 0.101961, 0.180392, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0sxfp")
+}
+
+[node name="title" type="Sprite2D" parent="."]
+position = Vector2(631, 197)
+texture = ExtResource("2_kr7j3")
+
+[node name="pmgames" type="Sprite2D" parent="."]
+position = Vector2(626.333, 455.5)
+scale = Vector2(0.313657, 0.313657)
+texture = ExtResource("3_2855g")
+
+[node name="godot" type="Sprite2D" parent="."]
+position = Vector2(620, 462)
+scale = Vector2(0.405817, 0.405817)
+texture = ExtResource("4_fchx1")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 438.0
+offset_top = 443.0
+offset_right = 854.0
+offset_bottom = 551.0
+theme_override_fonts/normal_font = ExtResource("5_lm3xg")
+theme_override_font_sizes/normal_font_size = 51
+bbcode_enabled = true
+text = "[pulse]Press Enter To Start"

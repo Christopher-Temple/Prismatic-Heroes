@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://c7xmuyt3n5fp1"]
+
+[ext_resource type="Script" path="res://scripts/CharacterData.gd" id="1_n4dah"]
+
+[resource]
+script = ExtResource("1_n4dah")
+id = "rogue"
+character_name = "Zara Swiftblade"
+character_class = "Rogue"
+class_type = "DPS"
+color = Color(0.180392, 0.8, 0.443137, 1)
+portrait_path = "res://assets/portraits/rogue.png"
+ability_name = "Assassinate"
+ability_description = "Deals massive damage to a single enemy."
+ability_value_tier1 = 15.0
+ability_value_tier2 = 22.0
+ability_value_tier3 = 30.0
+ability_secondary_tier1 = 0.0
+ability_secondary_tier2 = 0.0
+ability_secondary_tier3 = 0.0
+ability_duration_tier1 = 0
+ability_duration_tier2 = 0
+ability_duration_tier3 = 0
+unlock_cost = 200
+unlock_tier = 0
+is_starter = false
+special_data = {}

@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://25f64x7ub1rh"]
+
+[ext_resource type="Script" path="res://scripts/CharacterData.gd" id="1_rxmpv"]
+
+[resource]
+script = ExtResource("1_rxmpv")
+id = "beastmaster"
+character_name = "Fang"
+character_class = "Beastmaster"
+class_type = "DPS"
+color = Color(0.627451, 0.321569, 0.176471, 1)
+portrait_path = "res://assets/portraits/beastmaster.png"
+ability_name = "Beast Summon"
+ability_description = "Summons a random companion to attack. Higher levels summon stronger beasts."
+ability_value_tier1 = 0.0
+ability_value_tier2 = 0.0
+ability_value_tier3 = 0.0
+ability_secondary_tier1 = 0.0
+ability_secondary_tier2 = 0.0
+ability_secondary_tier3 = 0.0
+ability_duration_tier1 = 0
+ability_duration_tier2 = 0
+ability_duration_tier3 = 0
+unlock_cost = 600
+unlock_tier = 3
+is_starter = false
+special_data = {}
