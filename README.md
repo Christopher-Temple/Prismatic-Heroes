@@ -1,0 +1,1 @@
+A test project that uses Claude AI to fully generate code for a game. Mainly intended to see how AI handles coding task compared to how I handle them and to see if there is anything I can learn by reviewing how Claude strctures it's code, how it handles AutoLoads, saving/loading game data, etc.
