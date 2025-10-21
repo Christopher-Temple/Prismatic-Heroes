@@ -35,7 +35,7 @@ func _ready():
 	
 	if map_data.is_empty():
 		print("ERROR: No map data found!")
-		get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
+		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 		return
 	
 	# Build the map visually
@@ -101,7 +101,6 @@ func create_node_button(node_data) -> TextureButton:
 	
 	return button
 
-# Add this to the create_connections function:
 func draw_connection(from_pos: Vector2, to_pos: Vector2, from_id: int, to_id: int):
 	"""Draw a line between two nodes"""
 	var line = Line2D.new()
@@ -118,7 +117,6 @@ func draw_connection(from_pos: Vector2, to_pos: Vector2, from_id: int, to_id: in
 	
 	map_container.add_child(line)
 
-# Update create_connections to pass IDs:
 func create_connections():
 	"""Draw lines between connected nodes"""
 	for node_data in map_data["nodes"]:
@@ -130,7 +128,6 @@ func create_connections():
 	# Highlight already traveled path
 	highlight_traveled_path()
 
-# Add new function to highlight path:
 func highlight_traveled_path():
 	"""Highlight the path player has taken"""
 	# Get visited nodes from map data
@@ -149,7 +146,6 @@ func highlight_traveled_path():
 			line.default_color = Color("#F39C12")  # Gold for traveled path
 			line.width = 6
 
-# Update _on_node_clicked to highlight when moving:
 func _on_node_clicked(node_id: int):
 	"""Handle clicking on a map node"""
 	if not can_interact:
@@ -159,9 +155,14 @@ func _on_node_clicked(node_id: int):
 	if not node_data:
 		return
 	
+	# Check if node is already visited (can't click again)
+	if node_data.is_visited:
+		print("Node already visited, cannot select again")
+		return
+	
 	print("Moving to node: ", node_id, " (", node_data.node_type, ")")
 	
-	# Highlight the path taken
+	# Highlight the path taken - PERMANENT
 	var prev_node_id = map_data["current_node_id"]
 	var line_name = "Connection_%d_%d" % [prev_node_id, node_id]
 	var line = map_container.get_node_or_null(line_name)
@@ -169,23 +170,61 @@ func _on_node_clicked(node_id: int):
 		line.default_color = Color("#F39C12")  # Gold
 		line.width = 6
 	
-	# Update current position
+	# Store this connection in the path history
+	if not map_data.has("path_history"):
+		map_data["path_history"] = []
+	map_data["path_history"].append({"from": prev_node_id, "to": node_id})
+	
+	# Update current position in map data
 	map_data["current_node_id"] = node_id
 	GameManager.current_run["map"] = map_data
-	GameManager.save_game()
 	
-	# Mark as visited
+	# Mark as visited AND current
 	node_data.is_visited = true
 	node_data.is_current = true
 	
-	# Get node type and load scene
-	var node_type = MissionDatabase.get_node_type(node_data.node_type)
+	# Mark previous node as no longer current
+	var prev_node = get_node_by_id(prev_node_id)
+	if prev_node:
+		prev_node.is_current = false
 	
-	if node_type and node_type.scene_path != "":
-		get_tree().change_scene_to_file(node_type.scene_path)
+	# Save game state (this saves the path history too)
+	GameManager.save_game()
+	
+	# Get node type
+	var node_type = node_data.node_type
+	
+	# Handle battle nodes specially
+	if node_type == "battle" or node_type == "elite":
+		var is_elite = (node_type == "elite")
+		print("Starting battle: Elite=%s" % is_elite)
+		GameManager.start_battle(is_elite)
+		
+		# Check if scene file exists
+		var battle_scene_path = "res://scenes/battle_scene.tscn"
+		if ResourceLoader.exists(battle_scene_path):
+			print("Loading battle scene from: ", battle_scene_path)
+			var result = get_tree().change_scene_to_file(battle_scene_path)
+			if result != OK:
+				print("ERROR: Failed to load battle scene! Error code: ", result)
+		else:
+			print("ERROR: Battle scene not found at: ", battle_scene_path)
+		return
+	
+	# Handle boss nodes
+	if node_type == "boss":
+		# TODO: Setup boss battle differently
+		GameManager.start_battle(false)  # For now, treat as normal
+		get_tree().change_scene_to_file("res://scenes/battle_scene.tscn")
+		return
+	
+	# Handle other node types (shop, rest, etc.)
+	var type_data = MissionDatabase.get_node_type(node_type)
+	if type_data and type_data.scene_path != "":
+		get_tree().change_scene_to_file(type_data.scene_path)
 	else:
-		print("Node type '%s' has no scene defined" % node_data.node_type)
-		get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
+		print("Node type '%s' has no scene defined" % node_type)
+		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 func get_node_by_id(node_id: int):
 	"""Find node data by ID"""
@@ -198,7 +237,17 @@ func start_title_sequence():
 	"""Show title, then fade out"""
 	can_interact = false
 	
-	# Show title
+	# Check if we're returning from a battle (node already visited)
+	var current_node = get_node_by_id(map_data["current_node_id"])
+	if current_node and current_node.is_visited and current_node.id != 0:
+		# Skip title animation, go straight to gameplay
+		print("Returning from battle, skipping title")
+		title_overlay.visible = false
+		can_interact = true
+		enable_available_nodes()
+		return
+	
+	# Show title for first time
 	title_label.text = objective_data["title"]
 	title_label.modulate = Color(1, 1, 1, 0)
 	title_overlay.visible = true
@@ -224,8 +273,17 @@ func enable_available_nodes():
 		var button = node_buttons[i]
 		var node_data = map_data["nodes"][i]
 		
-		if node_data.is_current or is_node_available(node_data):
+		# Disable if already visited
+		if node_data.is_visited:
+			button.disabled = true
+			button.modulate = Color(0.5, 0.5, 0.5, 0.5)  # Dim visited nodes
+		# Enable if current or available
+		elif node_data.is_current or is_node_available(node_data):
 			button.disabled = false
+			button.modulate = Color(1, 1, 1, 1)
+		else:
+			button.disabled = true
+			button.modulate = Color(1, 1, 1, 1)
 
 func is_node_available(node_data) -> bool:
 	"""Check if a node is accessible from current position"""

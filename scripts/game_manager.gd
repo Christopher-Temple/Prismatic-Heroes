@@ -16,6 +16,28 @@ signal character_unlocked(character_name)
 signal character_leveled_up(character_name, new_level)
 signal health_changed(current_health, max_health)
 
+# Battle transition data
+var pending_battle: Dictionary = {}
+
+func start_battle(is_elite: bool):
+	"""Called by map when player clicks battle node"""
+	var current_floor = current_run.get("currentFloor", 1)
+	
+	pending_battle = {
+		"is_elite": is_elite,
+		"difficulty": current_floor
+	}
+	
+	# Save map state is already in current_run
+	save_game()
+
+func get_battle_info() -> Dictionary:
+	"""Called by BattleScene on load"""
+	return pending_battle
+
+func clear_battle_info():
+	"""Clear after battle ends"""
+	pending_battle = {}
 func _ready():
 	print("GameManager initialized")
 
