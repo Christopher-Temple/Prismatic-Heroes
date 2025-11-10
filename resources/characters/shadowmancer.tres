@@ -1,0 +1,28 @@
+
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://shadowmancer_tres"]
+
+[ext_resource type="Script" path="res://scripts/CharacterData.gd" id="1_shadowmancer"]
+
+[resource]
+script = ExtResource("1_shadowmancer")
+id = "shadowmancer"
+character_name = "Umbra Nightwhisper"
+character_class = "Shadowmancer"
+class_type = "DPS"
+color = Color(0.3, 0.15, 0.4, 1)
+portrait_path = "res://assets/portraits/shadowmancer.png"
+ability_name = "Shadow Strike"
+ability_description = "Enemy's shadow attacks them for their own damage. Chance to delay all enemies."
+ability_value_tier1 = 15.0
+ability_value_tier2 = 20.0
+ability_value_tier3 = 25.0
+ability_secondary_tier1 = 0.0
+ability_secondary_tier2 = 0.0
+ability_secondary_tier3 = 0.0
+ability_duration_tier1 = 0
+ability_duration_tier2 = 0
+ability_duration_tier3 = 0
+unlock_cost = 600
+unlock_tier = 3
+is_starter = false
+special_data = {}

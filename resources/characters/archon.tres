@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://archon_tres"]
+
+[ext_resource type="Script" path="res://scripts/CharacterData.gd" id="1_archon"]
+
+[resource]
+script = ExtResource("1_archon")
+id = "archon"
+character_name = "Celestial Ascendant"
+character_class = "Archon"
+class_type = "Hybrid"
+color = Color(0.95, 0.95, 1.0, 1)
+portrait_path = "res://assets/portraits/archon.png"
+ability_name = "Ascension"
+ability_description = "Transforms all blocks to white, matches all, deals damage and heals per block."
+ability_value_tier1 = 1.0
+ability_value_tier2 = 1.5
+ability_value_tier3 = 2.0
+ability_secondary_tier1 = 1.0
+ability_secondary_tier2 = 1.5
+ability_secondary_tier3 = 2.0
+ability_duration_tier1 = 0
+ability_duration_tier2 = 0
+ability_duration_tier3 = 0
+unlock_cost = 2500
+unlock_tier = 9
+is_starter = false
+special_data = {}

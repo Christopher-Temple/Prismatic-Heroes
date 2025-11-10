@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://elementalist_tres"]
+
+[ext_resource type="Script" path="res://scripts/CharacterData.gd" id="1_elementalist"]
+
+[resource]
+script = ExtResource("1_elementalist")
+id = "elementalist"
+character_name = "Primal Stormbringer"
+character_class = "Elementalist"
+class_type = "DPS"
+color = Color(0.3, 0.8, 0.7, 1)
+portrait_path = "res://assets/portraits/elementalist.png"
+ability_name = "Cataclysm"
+ability_description = "Destroys all fire/ice/lightning/earth blocks and deals damage for each."
+ability_value_tier1 = 3.0
+ability_value_tier2 = 4.0
+ability_value_tier3 = 5.0
+ability_secondary_tier1 = 0.0
+ability_secondary_tier2 = 0.0
+ability_secondary_tier3 = 0.0
+ability_duration_tier1 = 0
+ability_duration_tier2 = 0
+ability_duration_tier3 = 0
+unlock_cost = 2000
+unlock_tier = 8
+is_starter = false
+special_data = {}

@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://dreadknight_tres"]
+
+[ext_resource type="Script" path="res://scripts/CharacterData.gd" id="1_dreadknight"]
+
+[resource]
+script = ExtResource("1_dreadknight")
+id = "dreadknight"
+character_name = "Mortis Doomplate"
+character_class = "Dreadknight"
+class_type = "Tank"
+color = Color(0.2, 0.2, 0.25, 1)
+portrait_path = "res://assets/portraits/dreadknight.png"
+ability_name = "Death's Embrace"
+ability_description = "Sacrifice HP for massive AoE damage and 2 turns of immunity."
+ability_value_tier1 = 2.0
+ability_value_tier2 = 3.0
+ability_value_tier3 = 4.0
+ability_secondary_tier1 = 0.25
+ability_secondary_tier2 = 0.25
+ability_secondary_tier3 = 0.25
+ability_duration_tier1 = 2
+ability_duration_tier2 = 2
+ability_duration_tier3 = 2
+unlock_cost = 1200
+unlock_tier = 6
+is_starter = false
+special_data = {}

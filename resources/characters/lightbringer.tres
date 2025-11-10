@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://lightbringer_tres"]
+
+[ext_resource type="Script" path="res://scripts/CharacterData.gd" id="1_lightbringer"]
+
+[resource]
+script = ExtResource("1_lightbringer")
+id = "lightbringer"
+character_name = "Radiance Dawnbringer"
+character_class = "Lightbringer"
+class_type = "Support"
+color = Color(1.0, 0.95, 0.7, 1)
+portrait_path = "res://assets/portraits/lightbringer.png"
+ability_name = "Solar Flare"
+ability_description = "Heals party, creates shield, blinds enemies (50% miss chance)."
+ability_value_tier1 = 40.0
+ability_value_tier2 = 60.0
+ability_value_tier3 = 80.0
+ability_secondary_tier1 = 30.0
+ability_secondary_tier2 = 45.0
+ability_secondary_tier3 = 60.0
+ability_duration_tier1 = 0
+ability_duration_tier2 = 0
+ability_duration_tier3 = 0
+unlock_cost = 2000
+unlock_tier = 8
+is_starter = false
+special_data = {}

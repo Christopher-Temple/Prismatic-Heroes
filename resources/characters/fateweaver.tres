@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://fateweaver_tres"]
+
+[ext_resource type="Script" path="res://scripts/CharacterData.gd" id="1_fateweaver"]
+
+[resource]
+script = ExtResource("1_fateweaver")
+id = "fateweaver"
+character_name = "Destiny Threadspinner"
+character_class = "Fateweaver"
+class_type = "Utility"
+color = Color(0.7, 0.6, 0.9, 1)
+portrait_path = "res://assets/portraits/fateweaver.png"
+ability_name = "Prophecy"
+ability_description = "Next pieces are all one color (not Fateweaver's color)."
+ability_value_tier1 = 2.0
+ability_value_tier2 = 3.0
+ability_value_tier3 = 4.0
+ability_secondary_tier1 = 0.0
+ability_secondary_tier2 = 0.0
+ability_secondary_tier3 = 0.0
+ability_duration_tier1 = 0
+ability_duration_tier2 = 0
+ability_duration_tier3 = 0
+unlock_cost = 1200
+unlock_tier = 6
+is_starter = false
+special_data = {}

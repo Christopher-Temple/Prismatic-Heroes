@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://geomancer_tres"]
+
+[ext_resource type="Script" path="res://scripts/CharacterData.gd" id="1_geomancer"]
+
+[resource]
+script = ExtResource("1_geomancer")
+id = "geomancer"
+character_name = "Terra Stoneheart"
+character_class = "Geomancer"
+class_type = "Hybrid"
+color = Color(0.55, 0.4, 0.25, 1)
+portrait_path = "res://assets/portraits/geomancer.png"
+ability_name = "Earthquake"
+ability_description = "Removes obstacles, deals damage, converts neutral blocks to earth blocks."
+ability_value_tier1 = 15.0
+ability_value_tier2 = 22.0
+ability_value_tier3 = 30.0
+ability_secondary_tier1 = 5.0
+ability_secondary_tier2 = 8.0
+ability_secondary_tier3 = 12.0
+ability_duration_tier1 = 0
+ability_duration_tier2 = 0
+ability_duration_tier3 = 0
+unlock_cost = 1000
+unlock_tier = 5
+is_starter = false
+special_data = {}

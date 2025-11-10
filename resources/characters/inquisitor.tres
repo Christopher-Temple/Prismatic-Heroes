@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://inquisitor_tres"]
+
+[ext_resource type="Script" path="res://scripts/CharacterData.gd" id="1_inquisitor"]
+
+[resource]
+script = ExtResource("1_inquisitor")
+id = "inquisitor"
+character_name = "Judge Ironwill"
+character_class = "Inquisitor"
+class_type = "DPS"
+color = Color(0.8, 0.75, 0.5, 1)
+portrait_path = "res://assets/portraits/inquisitor.png"
+ability_name = "Divine Retribution"
+ability_description = "Deals damage equal to a percentage of total damage party has taken this battle."
+ability_value_tier1 = 0.5
+ability_value_tier2 = 0.75
+ability_value_tier3 = 1.0
+ability_secondary_tier1 = 0.0
+ability_secondary_tier2 = 0.0
+ability_secondary_tier3 = 0.0
+ability_duration_tier1 = 0
+ability_duration_tier2 = 0
+ability_duration_tier3 = 0
+unlock_cost = 1000
+unlock_tier = 5
+is_starter = false
+special_data = {}

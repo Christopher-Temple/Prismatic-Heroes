@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://templar_tres"]
+
+[ext_resource type="Script" path="res://scripts/CharacterData.gd" id="1_templar"]
+
+[resource]
+script = ExtResource("1_templar")
+id = "templar"
+character_name = "Sanctus Lightshield"
+character_class = "Templar"
+class_type = "Tank"
+color = Color(0.95, 0.85, 0.6, 1)
+portrait_path = "res://assets/portraits/templar.png"
+ability_name = "Crusader's Aegis"
+ability_description = "Damage immunity for several turns. All damage becomes healing instead."
+ability_value_tier1 = 0.0
+ability_value_tier2 = 0.0
+ability_value_tier3 = 0.0
+ability_secondary_tier1 = 0.0
+ability_secondary_tier2 = 0.0
+ability_secondary_tier3 = 0.0
+ability_duration_tier1 = 3
+ability_duration_tier2 = 5
+ability_duration_tier3 = 7
+unlock_cost = 1500
+unlock_tier = 7
+is_starter = false
+special_data = {}

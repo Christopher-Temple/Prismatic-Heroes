@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://archdruid_tres"]
+
+[ext_resource type="Script" path="res://scripts/CharacterData.gd" id="1_archdruid"]
+
+[resource]
+script = ExtResource("1_archdruid")
+id = "archdruid"
+character_name = "Ancient Rootkeeper"
+character_class = "Archdruid"
+class_type = "Support"
+color = Color(0.2, 0.6, 0.2, 1)
+portrait_path = "res://assets/portraits/archdruid.png"
+ability_name = "World Tree"
+ability_description = "Creates permanent tree that heals, damages enemies, and removes obstacles each turn."
+ability_value_tier1 = 8.0
+ability_value_tier2 = 12.0
+ability_value_tier3 = 16.0
+ability_secondary_tier1 = 1.0
+ability_secondary_tier2 = 2.0
+ability_secondary_tier3 = 3.0
+ability_duration_tier1 = 0
+ability_duration_tier2 = 0
+ability_duration_tier3 = 0
+unlock_cost = 2500
+unlock_tier = 9
+is_starter = false
+special_data = {}

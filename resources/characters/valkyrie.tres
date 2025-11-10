@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://valkyrie_tres"]
+
+[ext_resource type="Script" path="res://scripts/CharacterData.gd" id="1_valkyrie"]
+
+[resource]
+script = ExtResource("1_valkyrie")
+id = "valkyrie"
+character_name = "Freya Skyheart"
+character_class = "Valkyrie"
+class_type = "Hybrid"
+color = Color(0.9, 0.8, 0.3, 1)
+portrait_path = "res://assets/portraits/valkyrie.png"
+ability_name = "Divine Judgement"
+ability_description = "Massive damage to lowest HP enemy and creates protective shield."
+ability_value_tier1 = 25.0
+ability_value_tier2 = 35.0
+ability_value_tier3 = 45.0
+ability_secondary_tier1 = 30.0
+ability_secondary_tier2 = 45.0
+ability_secondary_tier3 = 60.0
+ability_duration_tier1 = 0
+ability_duration_tier2 = 0
+ability_duration_tier3 = 0
+unlock_cost = 800
+unlock_tier = 4
+is_starter = false
+special_data = {}

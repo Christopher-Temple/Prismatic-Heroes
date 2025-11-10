@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://demonologist_tres"]
+
+[ext_resource type="Script" path="res://scripts/CharacterData.gd" id="1_demonologist"]
+
+[resource]
+script = ExtResource("1_demonologist")
+id = "demonologist"
+character_name = "Infernal Summoner"
+character_class = "Demonologist"
+class_type = "DPS"
+color = Color(0.6, 0.1, 0.15, 1)
+portrait_path = "res://assets/portraits/demonologist.png"
+ability_name = "Infernal Legion"
+ability_description = "Summons a demon that attacks independently for 5 turns."
+ability_value_tier1 = 0.0
+ability_value_tier2 = 0.0
+ability_value_tier3 = 0.0
+ability_secondary_tier1 = 0.0
+ability_secondary_tier2 = 0.0
+ability_secondary_tier3 = 0.0
+ability_duration_tier1 = 5
+ability_duration_tier2 = 5
+ability_duration_tier3 = 5
+unlock_cost = 2500
+unlock_tier = 9
+is_starter = false
+special_data = {
+	"demons": [
+		{"name": "Imp", "damage": [5, 8, 12], "weight": [40, 30, 20]},
+		{"name": "Hellhound", "damage": [10, 15, 20], "weight": [30, 30, 25]},
+		{"name": "Fiend", "damage": [15, 22, 30], "weight": [20, 25, 30]},
+		{"name": "Pit Lord", "damage": [25, 35, 50], "weight": [8, 12, 18]},
+		{"name": "Archfiend", "damage": [40, 60, 80], "weight": [2, 3, 7]}
+	]
+}

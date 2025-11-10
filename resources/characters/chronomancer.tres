@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://chronomancer_tres"]
+
+[ext_resource type="Script" path="res://scripts/CharacterData.gd" id="1_chronomancer"]
+
+[resource]
+script = ExtResource("1_chronomancer")
+id = "chronomancer"
+character_name = "Chronos Timeweaver"
+character_class = "Chronomancer"
+class_type = "Utility"
+color = Color(0.5, 0.7, 0.9, 1)
+portrait_path = "res://assets/portraits/chronomancer.png"
+ability_name = "Time Warp"
+ability_description = "Delays all enemies and grants player an extra turn."
+ability_value_tier1 = 1.0
+ability_value_tier2 = 2.0
+ability_value_tier3 = 3.0
+ability_secondary_tier1 = 0.0
+ability_secondary_tier2 = 0.0
+ability_secondary_tier3 = 0.0
+ability_duration_tier1 = 0
+ability_duration_tier2 = 0
+ability_duration_tier3 = 0
+unlock_cost = 800
+unlock_tier = 4
+is_starter = false
+special_data = {}

@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://blood_knight_tres"]
+
+[ext_resource type="Script" path="res://scripts/CharacterData.gd" id="1_blood_knight"]
+
+[resource]
+script = ExtResource("1_blood_knight")
+id = "blood_knight"
+character_name = "Crimson Bladestorm"
+character_class = "Blood Knight"
+class_type = "DPS"
+color = Color(0.7, 0.1, 0.1, 1)
+portrait_path = "res://assets/portraits/blood_knight.png"
+ability_name = "Crimson Strike"
+ability_description = "Deals bonus damage based on party's missing health."
+ability_value_tier1 = 10.0
+ability_value_tier2 = 15.0
+ability_value_tier3 = 20.0
+ability_secondary_tier1 = 0.5
+ability_secondary_tier2 = 0.5
+ability_secondary_tier3 = 0.5
+ability_duration_tier1 = 0
+ability_duration_tier2 = 0
+ability_duration_tier3 = 0
+unlock_cost = 1000
+unlock_tier = 5
+is_starter = false
+special_data = {}

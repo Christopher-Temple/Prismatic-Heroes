@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://spellblade_tres"]
+
+[ext_resource type="Script" path="res://scripts/CharacterData.gd" id="1_spellblade"]
+
+[resource]
+script = ExtResource("1_spellblade")
+id = "spellblade"
+character_name = "Arcane Edgewalker"
+character_class = "Spellblade"
+class_type = "DPS"
+color = Color(0.4, 0.7, 0.8, 1)
+portrait_path = "res://assets/portraits/spellblade.png"
+ability_name = "Arcane Purge"
+ability_description = "Removes most abundant colored block and deals damage per block."
+ability_value_tier1 = 2.0
+ability_value_tier2 = 3.0
+ability_value_tier3 = 4.0
+ability_secondary_tier1 = 0.0
+ability_secondary_tier2 = 0.0
+ability_secondary_tier3 = 0.0
+ability_duration_tier1 = 0
+ability_duration_tier2 = 0
+ability_duration_tier3 = 0
+unlock_cost = 1500
+unlock_tier = 7
+is_starter = false
+special_data = {}
