@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://dmdt5burjnln1"]
+
+[ext_resource type="Script" path="res://scripts/EnemyData.gd" id="1_shadow_assassin"]
+
+[resource]
+script = ExtResource("1_shadow_assassin")
+id = "shadow_assassin"
+enemy_name = "Shadow Assassin"
+enemy_type = "Normal"
+color = Color(0.2, 0.2, 0.3, 1)
+sprite_path = "res://assets/portraits/shadow_assassin.png"
+base_health = 25
+health_scaling = 1.2
+coin_reward = 8
+attack_frequency = 5
+attack_damage = 10
+attack_description = "Strikes from the shadows"
+has_special_ability = true
+special_ability_name = "Critical Strike"
+special_ability_description = "30% chance to deal double damage"
+special_ability_trigger = "on_attack"
+special_ability_data = {
+"crit_chance": 0.3,
+"crit_multiplier": 2.0
+}
+places_obstacles = false
+obstacle_type = ""
+obstacle_frequency = 0
+obstacle_count = 1
+can_summon = false
+summon_enemy_id = ""
+summon_delay = 0
+summon_count = 1

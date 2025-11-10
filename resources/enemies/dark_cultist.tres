@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://drcdn0lq8qavg"]
+
+[ext_resource type="Script" path="res://scripts/EnemyData.gd" id="1_dark_cultist"]
+
+[resource]
+script = ExtResource("1_dark_cultist")
+id = "dark_cultist"
+enemy_name = "Dark Cultist"
+enemy_type = "Normal"
+color = Color(0.3, 0.15, 0.35, 1)
+sprite_path = "res://assets/portraits/dark_cultist.png"
+base_health = 30
+health_scaling = 1.2
+coin_reward = 7
+attack_frequency = 5
+attack_damage = 7
+attack_description = "Channels dark magic"
+has_special_ability = false
+special_ability_name = ""
+special_ability_description = ""
+special_ability_trigger = ""
+special_ability_data = {}
+places_obstacles = true
+obstacle_type = "curse"
+obstacle_frequency = 2
+obstacle_count = 2
+can_summon = false
+summon_enemy_id = ""
+summon_delay = 0
+summon_count = 1

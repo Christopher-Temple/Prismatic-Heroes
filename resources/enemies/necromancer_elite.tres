@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://cvpce5nbnmtb1"]
+
+[ext_resource type="Script" path="res://scripts/EnemyData.gd" id="1_necromancer_elite"]
+
+[resource]
+script = ExtResource("1_necromancer_elite")
+id = "necromancer_elite"
+enemy_name = "Necromancer"
+enemy_type = "Elite"
+color = Color(0.3, 0.2, 0.4, 1)
+sprite_path = "res://assets/portraits/necromancer_elite.png"
+base_health = 60
+health_scaling = 1.3
+coin_reward = 22
+attack_frequency = 5
+attack_damage = 8
+attack_description = "Casts dark magic"
+has_special_ability = true
+special_ability_name = "Raise Dead"
+special_ability_description = "Summons 2 Skeletons at 50% and 25% HP"
+special_ability_trigger = "health_thresholds"
+special_ability_data = {
+"health_thresholds": [0.5, 0.25],
+"summon_count": 2,
+"summon_enemy": "skeleton"
+}
+places_obstacles = false
+obstacle_type = ""
+obstacle_frequency = 0
+obstacle_count = 1
+can_summon = true
+summon_enemy_id = "skeleton"
+summon_delay = 0
+summon_count = 2

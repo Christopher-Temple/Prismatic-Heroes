@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://new_lycanthrope"]
+
+[ext_resource type="Script" path="res://scripts/EnemyData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "lycanthrope"
+enemy_name = "Lycanthrope"
+enemy_type = "Elite"
+color = Color(0.6, 0.4, 0.3, 1)
+sprite_path = "res://assets/portraits/lycanthrope.png"
+base_health = 40
+health_scaling = 1.25
+coin_reward = 22
+attack_frequency = 6
+attack_damage = 8
+attack_description = "Attacks cautiously..."
+has_special_ability = true
+special_ability_name = "Transformation"
+special_ability_description = "40% chance to transform into a werewolf on each turn. Heals to full and becomes stronger."
+special_ability_trigger = "on_attack"
+special_ability_data = {
+	"transform_chance": 0.4,
+	"werewolf_health": 65,
+	"werewolf_damage": 13,
+	"werewolf_frequency": 5
+}
+places_obstacles = false
+obstacle_type = ""
+obstacle_frequency = 0
+obstacle_count = 0
+can_summon = false
+summon_enemy_id = ""
+summon_delay = 0
+summon_count = 0

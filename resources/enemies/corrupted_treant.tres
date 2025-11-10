@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://c6i25dcxtpcvd"]
+
+[ext_resource type="Script" path="res://scripts/EnemyData.gd" id="1_corrupted_treant"]
+
+[resource]
+script = ExtResource("1_corrupted_treant")
+id = "corrupted_treant"
+enemy_name = "Corrupted Treant"
+enemy_type = "Normal"
+color = Color(0.3, 0.4, 0.2, 1)
+sprite_path = "res://assets/portraits/corrupted_treant.png"
+base_health = 38
+health_scaling = 1.2
+coin_reward = 9
+attack_frequency = 6
+attack_damage = 8
+attack_description = "Lashes with corrupted vines"
+has_special_ability = true
+special_ability_name = "Corruption"
+special_ability_description = "Converts 1 player block to neutral each turn"
+special_ability_trigger = "passive"
+special_ability_data = {
+"blocks_to_convert": 1
+}
+places_obstacles = false
+obstacle_type = ""
+obstacle_frequency = 0
+obstacle_count = 1
+can_summon = false
+summon_enemy_id = ""
+summon_delay = 0
+summon_count = 1

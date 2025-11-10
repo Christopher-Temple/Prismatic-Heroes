@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://wxrr6cep8kfd"]
+
+[ext_resource type="Script" path="res://scripts/EnemyData.gd" id="1_ice_elemental"]
+
+[resource]
+script = ExtResource("1_ice_elemental")
+id = "ice_elemental"
+enemy_name = "Ice Elemental"
+enemy_type = "Normal"
+color = Color(0.6, 0.8, 1, 1)
+sprite_path = "res://assets/portraits/ice_elemental.png"
+base_health = 35
+health_scaling = 1.2
+coin_reward = 8
+attack_frequency = 5
+attack_damage = 8
+attack_description = "Blasts with freezing cold"
+has_special_ability = false
+special_ability_name = ""
+special_ability_description = ""
+special_ability_trigger = ""
+special_ability_data = {}
+places_obstacles = true
+obstacle_type = "ice"
+obstacle_frequency = 3
+obstacle_count = 2
+can_summon = false
+summon_enemy_id = ""
+summon_delay = 0
+summon_count = 1

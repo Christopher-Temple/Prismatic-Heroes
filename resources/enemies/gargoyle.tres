@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://dk5i1shqn3cdx"]
+
+[ext_resource type="Script" path="res://scripts/EnemyData.gd" id="1_gargoyle"]
+
+[resource]
+script = ExtResource("1_gargoyle")
+id = "gargoyle"
+enemy_name = "Gargoyle"
+enemy_type = "Normal"
+color = Color(0.5, 0.5, 0.5, 1)
+sprite_path = "res://assets/portraits/gargoyle.png"
+base_health = 45
+health_scaling = 1.2
+coin_reward = 10
+attack_frequency = 6
+attack_damage = 7
+attack_description = "Swoops down with stone claws"
+has_special_ability = true
+special_ability_name = "Stone Skin"
+special_ability_description = "First damage each turn reduced by 50%"
+special_ability_trigger = "passive"
+special_ability_data = {
+"damage_reduction": 0.5
+}
+places_obstacles = false
+obstacle_type = ""
+obstacle_frequency = 0
+obstacle_count = 1
+can_summon = false
+summon_enemy_id = ""
+summon_delay = 0
+summon_count = 1

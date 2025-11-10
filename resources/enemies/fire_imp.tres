@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://betuiichfy7ig"]
+
+[ext_resource type="Script" path="res://scripts/EnemyData.gd" id="1_fire_imp"]
+
+[resource]
+script = ExtResource("1_fire_imp")
+id = "fire_imp"
+enemy_name = "Fire Imp"
+enemy_type = "Normal"
+color = Color(1, 0.3, 0.1, 1)
+sprite_path = "res://assets/portraits/fire_imp.png"
+base_health = 18
+health_scaling = 1.2
+coin_reward = 6
+attack_frequency = 3
+attack_damage = 6
+attack_description = "Hurls fireballs"
+has_special_ability = false
+special_ability_name = ""
+special_ability_description = ""
+special_ability_trigger = ""
+special_ability_data = {}
+places_obstacles = true
+obstacle_type = "fire"
+obstacle_frequency = 2
+obstacle_count = 1
+can_summon = false
+summon_enemy_id = ""
+summon_delay = 0
+summon_count = 1

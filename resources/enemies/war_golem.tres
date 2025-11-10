@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://cn8xehc3seqck"]
+
+[ext_resource type="Script" path="res://scripts/EnemyData.gd" id="1_war_golem"]
+
+[resource]
+script = ExtResource("1_war_golem")
+id = "war_golem"
+enemy_name = "War Golem"
+enemy_type = "Elite"
+color = Color(0.4, 0.4, 0.45, 1)
+sprite_path = "res://assets/portraits/iron_golem.png"
+base_health = 120
+health_scaling = 1.3
+coin_reward = 25
+attack_frequency = 6
+attack_damage = 15
+attack_description = "Crushes with massive fists"
+has_special_ability = true
+special_ability_name = "Siege Mode"
+special_ability_description = "Places 3 rock obstacles and gains +5 damage"
+special_ability_trigger = "every_4_attacks"
+special_ability_data = {
+"damage_increase": 5,
+"rocks_to_place": 3
+}
+places_obstacles = false
+obstacle_type = ""
+obstacle_frequency = 0
+obstacle_count = 1
+can_summon = false
+summon_enemy_id = ""
+summon_delay = 0
+summon_count = 1

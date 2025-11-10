@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://bw55euhk4k5gc"]
+
+[ext_resource type="Script" path="res://scripts/EnemyData.gd" id="1_void_horror"]
+
+[resource]
+script = ExtResource("1_void_horror")
+id = "void_horror"
+enemy_name = "The Void Horror, Eater of Worlds"
+enemy_type = "Boss"
+color = Color(0.15, 0.1, 0.2, 1)
+sprite_path = "res://assets/portraits/void_horror.png"
+base_health = 500
+health_scaling = 1.4
+coin_reward = 150
+attack_frequency = 7
+attack_damage = 18
+attack_description = "Reality-warping void energy"
+has_special_ability = true
+special_ability_name = "Apocalypse"
+special_ability_description = "Three phases of increasing chaos and destruction"
+special_ability_trigger = "multi_phase"
+special_ability_data = {
+"phase_1": {
+"ability": "reality_tear",
+"blocks_to_teleport": 10,
+"hp_percent": 1.0,
+"void_rifts": 3
+},
+"phase_2": {
+"ability": "consume",
+"heal_amount": 30,
+"hp_percent": 0.66,
+"summon_count": 2,
+"summon_enemy": "void_spawn"
+},
+"phase_3": {
+"ability": "apocalypse",
+"apocalypse_damage": 25,
+"damage_increase": 7,
+"frequency_reduction": 2,
+"hp_percent": 0.33,
+"void_rifts_per_turn": 2
+}
+}
+places_obstacles = true
+obstacle_type = "void_rift"
+obstacle_frequency = 2
+obstacle_count = 3
+can_summon = true
+summon_enemy_id = "void_spawn"
+summon_delay = 4
+summon_count = 2

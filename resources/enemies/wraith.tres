@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://dsu62gb8ilkfo"]
+
+[ext_resource type="Script" path="res://scripts/EnemyData.gd" id="1_wraith"]
+
+[resource]
+script = ExtResource("1_wraith")
+id = "wraith"
+enemy_name = "Wraith"
+enemy_type = "Normal"
+color = Color(0.4, 0.4, 0.5, 1)
+sprite_path = "res://assets/portraits/wraith.png"
+base_health = 22
+health_scaling = 1.2
+coin_reward = 7
+attack_frequency = 4
+attack_damage = 8
+attack_description = "Phases through defenses"
+has_special_ability = true
+special_ability_name = "Phase"
+special_ability_description = "30% chance to evade damage"
+special_ability_trigger = "passive"
+special_ability_data = {
+"evade_chance": 0.3
+}
+places_obstacles = false
+obstacle_type = ""
+obstacle_frequency = 0
+obstacle_count = 1
+can_summon = false
+summon_enemy_id = ""
+summon_delay = 0
+summon_count = 1

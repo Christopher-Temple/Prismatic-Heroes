@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://dggxreb1pgfsr"]
+
+[ext_resource type="Script" path="res://scripts/EnemyData.gd" id="1_giant_rat"]
+
+[resource]
+script = ExtResource("1_giant_rat")
+id = "giant_rat"
+enemy_name = "Giant Rat"
+enemy_type = "Normal"
+color = Color(0.3, 0.25, 0.2, 1)
+sprite_path = "res://assets/portraits/giant_rat.png"
+base_health = 15
+health_scaling = 1.2
+coin_reward = 5
+attack_frequency = 3
+attack_damage = 4
+attack_description = "Bites with diseased fangs"
+has_special_ability = true
+special_ability_name = "Disease"
+special_ability_description = "Inflicts disease (-1 HP per turn for 3 turns)"
+special_ability_trigger = "on_attack"
+special_ability_data = {
+"disease_damage": 1,
+"disease_duration": 3
+}
+places_obstacles = false
+obstacle_type = ""
+obstacle_frequency = 0
+obstacle_count = 1
+can_summon = false
+summon_enemy_id = ""
+summon_delay = 0
+summon_count = 1

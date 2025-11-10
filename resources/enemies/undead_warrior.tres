@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://ddsubc0u2msho"]
+
+[ext_resource type="Script" path="res://scripts/EnemyData.gd" id="1_undead_warrior"]
+
+[resource]
+script = ExtResource("1_undead_warrior")
+id = "undead_warrior"
+enemy_name = "Undead Warrior"
+enemy_type = "Normal"
+color = Color(0.5, 0.5, 0.4, 1)
+sprite_path = "res://assets/portraits/undead_warrior.png"
+base_health = 40
+health_scaling = 1.2
+coin_reward = 9
+attack_frequency = 6
+attack_damage = 9
+attack_description = "Heavy sword strike"
+has_special_ability = true
+special_ability_name = "Undying"
+special_ability_description = "25% chance to revive with 50% HP once"
+special_ability_trigger = "on_death"
+special_ability_data = {
+"revive_chance": 0.25,
+"revive_hp_percent": 0.5
+}
+places_obstacles = false
+obstacle_type = ""
+obstacle_frequency = 0
+obstacle_count = 1
+can_summon = false
+summon_enemy_id = ""
+summon_delay = 0
+summon_count = 1

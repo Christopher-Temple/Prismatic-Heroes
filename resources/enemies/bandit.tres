@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://ewpk4b0iiwd4"]
+
+[ext_resource type="Script" path="res://scripts/EnemyData.gd" id="1_bandit"]
+
+[resource]
+script = ExtResource("1_bandit")
+id = "bandit"
+enemy_name = "Bandit"
+enemy_type = "Normal"
+color = Color(0.4, 0.3, 0.2, 1)
+sprite_path = "res://assets/portraits/bandit.png"
+base_health = 20
+health_scaling = 1.2
+coin_reward = 8
+attack_frequency = 3
+attack_damage = 5
+attack_description = "Quick slash and theft"
+has_special_ability = true
+special_ability_name = "Steal"
+special_ability_description = "Steals 5 coins on hit (50% chance)"
+special_ability_trigger = "on_attack"
+special_ability_data = {
+"steal_amount": 5,
+"steal_chance": 0.5
+}
+places_obstacles = false
+obstacle_type = ""
+obstacle_frequency = 0
+obstacle_count = 1
+can_summon = false
+summon_enemy_id = ""
+summon_delay = 0
+summon_count = 1

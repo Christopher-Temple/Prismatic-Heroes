@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://new_troll"]
+
+[ext_resource type="Script" path="res://scripts/EnemyData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "troll"
+enemy_name = "Troll"
+enemy_type = "Elite"
+color = Color(0.2, 0.5, 0.2, 1)
+sprite_path = "res://assets/portraits/troll.png"
+base_health = 70
+health_scaling = 1.25
+coin_reward = 20
+attack_frequency = 8
+attack_damage = 14
+attack_description = "Smashes with heavy fists."
+has_special_ability = true
+special_ability_name = "Regeneration"
+special_ability_description = "Heals 3 HP whenever neutral blocks are matched. (TODO: Fire damage disables)"
+special_ability_trigger = "passive"
+special_ability_data = {
+	"heal_per_neutral_match": 3
+}
+places_obstacles = false
+obstacle_type = ""
+obstacle_frequency = 0
+obstacle_count = 0
+can_summon = false
+summon_enemy_id = ""
+summon_delay = 0
+summon_count = 0

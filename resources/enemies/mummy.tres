@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://new_mummy"]
+
+[ext_resource type="Script" path="res://scripts/EnemyData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "mummy"
+enemy_name = "Mummy"
+enemy_type = "Normal"
+color = Color(0.6, 0.5, 0.3, 1)
+sprite_path = "res://assets/portraits/mummy.png"
+base_health = 30
+health_scaling = 1.2
+coin_reward = 7
+attack_frequency = 4
+attack_damage = 7
+attack_description = "Wraps enemies with ancient bandages."
+has_special_ability = true
+special_ability_name = "Bind"
+special_ability_description = "25% chance to bind a character, preventing power gain until mummy's next turn."
+special_ability_trigger = "on_attack"
+special_ability_data = {
+	"bind_chance": 0.25
+}
+places_obstacles = false
+obstacle_type = ""
+obstacle_frequency = 0
+obstacle_count = 0
+can_summon = false
+summon_enemy_id = ""
+summon_delay = 0
+summon_count = 0

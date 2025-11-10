@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://xa5a5cy3hysm"]
+
+[ext_resource type="Script" path="res://scripts/EnemyData.gd" id="1_frost_giant"]
+
+[resource]
+script = ExtResource("1_frost_giant")
+id = "frost_giant"
+enemy_name = "Frost Giant"
+enemy_type = "Elite"
+color = Color(0.6, 0.7, 0.9, 1)
+sprite_path = "res://assets/portraits/frost_giant.png"
+base_health = 100
+health_scaling = 1.3
+coin_reward = 24
+attack_frequency = 6
+attack_damage = 14
+attack_description = "Swings massive ice club"
+has_special_ability = true
+special_ability_name = "Blizzard"
+special_ability_description = "Freezes 10 random blocks for 2 turns, deals 8 AoE damage"
+special_ability_trigger = "turn_5"
+special_ability_data = {
+"aoe_damage": 8,
+"blocks_to_freeze": 10,
+"freeze_duration": 2
+}
+places_obstacles = false
+obstacle_type = ""
+obstacle_frequency = 0
+obstacle_count = 1
+can_summon = false
+summon_enemy_id = ""
+summon_delay = 0
+summon_count = 1

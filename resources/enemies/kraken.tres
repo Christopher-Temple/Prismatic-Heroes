@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://dgc83pqw2cwif"]
+
+[ext_resource type="Script" path="res://scripts/EnemyData.gd" id="1_kraken"]
+
+[resource]
+script = ExtResource("1_kraken")
+id = "kraken"
+enemy_name = "Kraken, Terror of the Deep"
+enemy_type = "Boss"
+color = Color(0.2, 0.4, 0.5, 1)
+sprite_path = "res://assets/portraits/kraken.png"
+base_health = 400
+health_scaling = 1.4
+coin_reward = 100
+attack_frequency = 6
+attack_damage = 20
+attack_description = "Tentacle smash and water pressure"
+has_special_ability = true
+special_ability_name = "Whirlpool"
+special_ability_description = "Phase 2: Removes all blocks in 2 columns, deals 15 damage"
+special_ability_trigger = "multi_phase"
+special_ability_data = {
+"phase_1": {
+"ability": "tentacle_strike",
+"hp_percent": 1.0,
+"water_columns": 2
+},
+"phase_2": {
+"ability": "whirlpool",
+"columns_to_clear": 2,
+"damage_increase": 5,
+"hp_percent": 0.5,
+"summon_count": 2,
+"summon_enemy": "giant_squid",
+"whirlpool_damage": 15
+}
+}
+places_obstacles = true
+obstacle_type = "water"
+obstacle_frequency = 3
+obstacle_count = 2
+can_summon = true
+summon_enemy_id = "giant_squid"
+summon_delay = 5
+summon_count = 2
