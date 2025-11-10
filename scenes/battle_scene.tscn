@@ -481,6 +481,7 @@ text = "asd"
 horizontal_alignment = 1
 
 [node name="NextPiecePreview" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -608,10 +609,10 @@ text = "RETURN"
 [node name="CombatLog" type="RichTextLabel" parent="."]
 z_index = 10
 layout_mode = 0
-offset_left = 457.0
-offset_top = 10.0
-offset_right = 1039.0
-offset_bottom = 128.0
+offset_left = 349.0
+offset_top = 14.0
+offset_right = 931.0
+offset_bottom = 132.0
 theme_override_constants/outline_size = 4
 theme_override_styles/normal = SubResource("StyleBoxFlat_6yvuy")
 bbcode_enabled = true

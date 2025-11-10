@@ -1,0 +1,235 @@
+[gd_scene load_steps=5 format=3 uid="uid://dab0rh5ens0bw"]
+
+[ext_resource type="Script" path="res://scripts/options.gd" id="1_71ey3"]
+[ext_resource type="FontFile" uid="uid://dvxbp285xmtig" path="res://assets/fonts/Knights Quest.ttf" id="2_xbtnh"]
+[ext_resource type="FontFile" uid="uid://brfvbtde0o65k" path="res://assets/fonts/FiraCode-Regular.ttf" id="3_cucl2"]
+[ext_resource type="Theme" uid="uid://bif1vn82s31vk" path="res://scenes/GUI.tres" id="3_hyoty"]
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_71ey3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101961, 0.101961, 0.180392, 1)
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -82.5
+offset_right = 82.5
+offset_bottom = 59.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.952941, 0.611765, 0.0705882, 1)
+theme_override_fonts/font = ExtResource("2_xbtnh")
+theme_override_font_sizes/font_size = 58
+text = "Options"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -260.0
+offset_right = 400.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OptionsContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="AudioSection" type="Label" parent="ScrollContainer/OptionsContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.952941, 0.611765, 0.0705882, 1)
+theme_override_fonts/font = ExtResource("3_cucl2")
+text = "===AUDIO==="
+
+[node name="MasterVolume" type="HBoxContainer" parent="ScrollContainer/OptionsContainer"]
+layout_mode = 2
+
+[node name="MasterVolume" type="Label" parent="ScrollContainer/OptionsContainer/MasterVolume"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Master"
+
+[node name="Slider" type="HSlider" parent="ScrollContainer/OptionsContainer/MasterVolume"]
+custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
+
+[node name="ValueLabel" type="Label" parent="ScrollContainer/OptionsContainer/MasterVolume"]
+layout_mode = 2
+text = "100%"
+
+[node name="MusicVolume" type="HBoxContainer" parent="ScrollContainer/OptionsContainer"]
+layout_mode = 2
+
+[node name="MusicVolume" type="Label" parent="ScrollContainer/OptionsContainer/MusicVolume"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Music"
+
+[node name="Slider" type="HSlider" parent="ScrollContainer/OptionsContainer/MusicVolume"]
+custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
+
+[node name="ValueLabel" type="Label" parent="ScrollContainer/OptionsContainer/MusicVolume"]
+layout_mode = 2
+text = "100%"
+
+[node name="SFXVolume" type="HBoxContainer" parent="ScrollContainer/OptionsContainer"]
+layout_mode = 2
+
+[node name="SFXVolume" type="Label" parent="ScrollContainer/OptionsContainer/SFXVolume"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "SFX"
+
+[node name="Slider" type="HSlider" parent="ScrollContainer/OptionsContainer/SFXVolume"]
+custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
+
+[node name="ValueLabel" type="Label" parent="ScrollContainer/OptionsContainer/SFXVolume"]
+layout_mode = 2
+text = "100%"
+
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/OptionsContainer"]
+layout_mode = 2
+
+[node name="GameplaySection" type="Label" parent="ScrollContainer/OptionsContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.952941, 0.611765, 0.0705882, 1)
+theme_override_fonts/font = ExtResource("3_cucl2")
+text = "===GAMEPLAY==="
+
+[node name="ScreenShake" type="HBoxContainer" parent="ScrollContainer/OptionsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/OptionsContainer/ScreenShake"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "Screen Shake"
+
+[node name="CheckBox" type="CheckBox" parent="ScrollContainer/OptionsContainer/ScreenShake"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_hyoty")
+
+[node name="Particles" type="HBoxContainer" parent="ScrollContainer/OptionsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/OptionsContainer/Particles"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "Particles"
+
+[node name="CheckBox" type="CheckBox" parent="ScrollContainer/OptionsContainer/Particles"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_hyoty")
+
+[node name="DamageNumbers" type="HBoxContainer" parent="ScrollContainer/OptionsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/OptionsContainer/DamageNumbers"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "Damage Numbers"
+
+[node name="CheckBox" type="CheckBox" parent="ScrollContainer/OptionsContainer/DamageNumbers"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_hyoty")
+
+[node name="ColorblindMode" type="HBoxContainer" parent="ScrollContainer/OptionsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/OptionsContainer/ColorblindMode"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "Color Blind Mode"
+
+[node name="CheckBox" type="CheckBox" parent="ScrollContainer/OptionsContainer/ColorblindMode"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_hyoty")
+
+[node name="HSeparator2" type="HSeparator" parent="ScrollContainer/OptionsContainer"]
+layout_mode = 2
+
+[node name="DisplaySection" type="Label" parent="ScrollContainer/OptionsContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.952941, 0.611765, 0.0705882, 1)
+theme_override_fonts/font = ExtResource("3_cucl2")
+text = "===DISPLAY==="
+
+[node name="Fullscreen" type="HBoxContainer" parent="ScrollContainer/OptionsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/OptionsContainer/Fullscreen"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="CheckBox" type="CheckBox" parent="ScrollContainer/OptionsContainer/Fullscreen"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_hyoty")
+
+[node name="VSync" type="HBoxContainer" parent="ScrollContainer/OptionsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/OptionsContainer/VSync"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "VSync"
+
+[node name="CheckBox" type="CheckBox" parent="ScrollContainer/OptionsContainer/VSync"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_hyoty")
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -60.0
+offset_right = 240.0
+offset_bottom = -17.0
+grow_vertical = 0
+theme = ExtResource("3_hyoty")
+text = "Back"
+
+[node name="ResetButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -280.0
+offset_top = -60.0
+offset_right = -53.0
+offset_bottom = -17.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("3_hyoty")
+text = "Reset to Defaults"

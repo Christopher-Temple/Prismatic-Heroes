@@ -64,6 +64,12 @@ focus_mode = 0
 theme = ExtResource("2_2wp0h")
 text = "Statistics"
 
+[node name="AchievementsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_2wp0h")
+text = "Achievements"
+
 [node name="OptionsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
