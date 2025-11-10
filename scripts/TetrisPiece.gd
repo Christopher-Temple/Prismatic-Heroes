@@ -35,7 +35,15 @@ func _ready():
 		push_error("TetrisPiece must be child of PuzzleGrid!")
 	
 	create_sprites()
-	#create_ghost_sprites()
+	
+	# SPAWN ANIMATION - Start transparent and above grid
+	modulate = Color(1, 1, 1, 0)
+	position.y -= 40  # Start 40 pixels above
+	
+	var tween = create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(self, "modulate:a", 1.0, 0.3)
+	tween.tween_property(self, "position:y", grid_position.y * puzzle_grid.CELL_SIZE, 0.3).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
 
 func _process(delta):
 	if not can_move or puzzle_grid == null:
@@ -225,7 +233,7 @@ func hard_drop():
 	lock_piece()
 
 func rotate_clockwise() -> bool:
-	"""Rotate piece 90 degrees clockwise"""
+	"""Rotate piece 90 degrees clockwise with animation"""
 	if not can_move or puzzle_grid == null:
 		return false
 	
@@ -239,6 +247,13 @@ func rotate_clockwise() -> bool:
 	
 	if can_place_at(grid_position):
 		update_sprite_positions()
+		
+		# Animate rotation
+		for sprite in block_sprites:
+			sprite.rotation = -PI/2  # Start rotated
+			var tween = create_tween()
+			tween.tween_property(sprite, "rotation", 0.0, 0.15).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+		
 		return true
 	else:
 		shape = old_shape

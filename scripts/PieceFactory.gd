@@ -118,3 +118,7 @@ func generate_piece() -> Dictionary:
 		"shape": shape,
 		"colors": colors
 	}
+	
+func enable_character_colors_in_neutral():
+	"""Allow neutral blocks to contain character colors (Block Converter relic)"""
+	neutral_colors = ["gray", "brown", "white", "red", "blue", "yellow"]

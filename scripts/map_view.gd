@@ -34,14 +34,13 @@ func _ready():
 	objective_data = GameManager.current_run.get("objective", {})
 	
 	if map_data.is_empty():
-		print("ERROR: No map data found!")
 		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 		return
 	
 	# Build the map visually
 	create_map_nodes()
 	create_connections()
-	
+	AudioManager.play_music("main_menu", 2.0)
 	# Start title sequence
 	start_title_sequence()
 
@@ -155,52 +154,52 @@ func _on_node_clicked(node_id: int):
 	if not node_data:
 		return
 	
-	# Check if node is already visited (can't click again)
+	# Check if node is already visited
 	if node_data.is_visited:
 		print("Node already visited, cannot select again")
 		return
 	
 	print("Moving to node: ", node_id, " (", node_data.node_type, ")")
 	
-	# Highlight the path taken - PERMANENT
+	# Highlight path (same as before)
 	var prev_node_id = map_data["current_node_id"]
 	var line_name = "Connection_%d_%d" % [prev_node_id, node_id]
 	var line = map_container.get_node_or_null(line_name)
 	if line and line is Line2D:
-		line.default_color = Color("#F39C12")  # Gold
+		line.default_color = Color("#F39C12")
 		line.width = 6
 	
-	# Store this connection in the path history
 	if not map_data.has("path_history"):
 		map_data["path_history"] = []
 	map_data["path_history"].append({"from": prev_node_id, "to": node_id})
 	
-	# Update current position in map data
+	# Update position
 	map_data["current_node_id"] = node_id
 	GameManager.current_run["map"] = map_data
 	
-	# Mark as visited AND current
 	node_data.is_visited = true
 	node_data.is_current = true
 	
-	# Mark previous node as no longer current
 	var prev_node = get_node_by_id(prev_node_id)
 	if prev_node:
 		prev_node.is_current = false
 	
-	# Save game state (this saves the path history too)
 	GameManager.save_game()
 	
-	# Get node type
 	var node_type = node_data.node_type
 	
-	# Handle battle nodes specially
+	# Handle boss node
+	if node_type == "boss":
+		print("Starting BOSS battle!")
+		get_tree().change_scene_to_file("res://scenes/boss_intro.tscn")
+		return
+	
+	# Handle battle nodes
 	if node_type == "battle" or node_type == "elite":
 		var is_elite = (node_type == "elite")
 		print("Starting battle: Elite=%s" % is_elite)
 		GameManager.start_battle(is_elite)
 		
-		# Check if scene file exists
 		var battle_scene_path = "res://scenes/battle_scene.tscn"
 		if ResourceLoader.exists(battle_scene_path):
 			print("Loading battle scene from: ", battle_scene_path)
@@ -211,14 +210,7 @@ func _on_node_clicked(node_id: int):
 			print("ERROR: Battle scene not found at: ", battle_scene_path)
 		return
 	
-	# Handle boss nodes
-	if node_type == "boss":
-		# TODO: Setup boss battle differently
-		GameManager.start_battle(false)  # For now, treat as normal
-		get_tree().change_scene_to_file("res://scenes/battle_scene.tscn")
-		return
-	
-	# Handle other node types (shop, rest, etc.)
+	# Handle other nodes
 	var type_data = MissionDatabase.get_node_type(node_type)
 	if type_data and type_data.scene_path != "":
 		get_tree().change_scene_to_file(type_data.scene_path)

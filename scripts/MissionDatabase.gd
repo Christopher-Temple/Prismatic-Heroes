@@ -7,11 +7,9 @@ var treasure_items: Array[String] = []
 var legendary_items: Array[String] = []
 
 func _ready():
-	print("MissionDatabase initializing...")
 	setup_objectives()
 	setup_node_types()
 	setup_items()
-	print("MissionDatabase loaded!")
 
 # === OBJECTIVES ===
 
@@ -142,7 +140,7 @@ func setup_node_types():
 	battle.description = "Fight enemies"
 	battle.is_combat = true
 	battle.spawn_weight = 30
-	battle.scene_path = "res://scenes/PuzzleGame.tscn"
+	battle.scene_path = "res://scenes/battle_scene.tscn"
 	node_types["battle"] = battle
 	
 	# 2. Elite Battle - Harder encounter
@@ -153,8 +151,8 @@ func setup_node_types():
 	elite.description = "Fight a powerful enemy"
 	elite.is_combat = true
 	elite.spawn_weight = 10
-	elite.max_per_map = 3
-	elite.scene_path = "res://scenes/PuzzleGame.tscn"
+	elite.max_per_map = 2
+	elite.scene_path = "res://scenes/battle_scene.tscn"
 	node_types["elite"] = elite
 	
 	# 3. Shop
@@ -163,9 +161,9 @@ func setup_node_types():
 	shop.display_name = "Shop"
 	shop.color = Color("#F39C12")
 	shop.description = "Purchase upgrades"
-	shop.spawn_weight = 4  # Changed from 15 to 8
-	shop.max_per_map = 1
-	shop.scene_path = "res://scenes/Shop.tscn"
+	shop.spawn_weight = 8  # Changed from 15 to 8
+	shop.max_per_map = 2
+	shop.scene_path = "res://scenes/shop.tscn"
 	node_types["shop"] = shop
 
 	# 4. Rest Site
@@ -176,7 +174,7 @@ func setup_node_types():
 	rest.description = "Rest and recover"
 	rest.spawn_weight = 8  # Changed from 15 to 8
 	rest.max_per_map = 2
-	rest.scene_path = "res://scenes/RestSite.tscn"
+	rest.scene_path = "res://scenes/rest_site.tscn"
 	node_types["rest"] = rest
 	
 	# 5. Treasure
@@ -186,8 +184,8 @@ func setup_node_types():
 	treasure.color = Color("#F1C40F")  # Yellow
 	treasure.description = "Find valuable loot"
 	treasure.spawn_weight = 8
-	treasure.max_per_map = 1
-	treasure.scene_path = "res://scenes/Treasure.tscn"
+	treasure.max_per_map = 2
+	treasure.scene_path = "res://scenes/treasure.tscn"
 	node_types["treasure"] = treasure
 	
 	# 6. Mystery
@@ -196,8 +194,8 @@ func setup_node_types():
 	mystery.display_name = "Mystery"
 	mystery.color = Color("#3498DB")  # Blue
 	mystery.description = "Unknown encounter"
-	mystery.spawn_weight = 5
-	mystery.max_per_map = 2
+	mystery.spawn_weight = 0
+	mystery.max_per_map = 0
 	mystery.scene_path = "res://scenes/Mystery.tscn"
 	node_types["mystery"] = mystery
 	
@@ -221,7 +219,7 @@ func setup_node_types():
 	event.description = "A special occurrence"
 	event.spawn_weight = 8
 	event.max_per_map = 2
-	event.scene_path = "res://scenes/Event.tscn"
+	event.scene_path = "res://scenes/event.tscn"
 	node_types["event"] = event
 
 # === ITEMS (for retrieve missions) ===

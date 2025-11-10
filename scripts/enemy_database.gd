@@ -10,29 +10,58 @@ var boss_enemies: Array[String] = []
 var all_enemy_ids: Array[String] = []
 
 func _ready():
-	print("EnemyDatabase initializing...")
+	
 	load_all_enemies()
-	print("EnemyDatabase loaded %d enemies" % enemies.size())
+	
 
 func load_all_enemies():
 	"""Load all enemy resource files from disk"""
 	var enemy_paths = [
 		# NORMAL ENEMIES
 		"res://resources/enemies/goblin.tres",
+		"res://resources/enemies/goblin_archer.tres",
+		"res://resources/enemies/goblin_mage.tres",
 		"res://resources/enemies/orc.tres",
 		"res://resources/enemies/skeleton.tres",
+		"res://resources/enemies/skeleton_warrior.tres",
 		"res://resources/enemies/slime.tres",
 		"res://resources/enemies/spider.tres",
+		"res://resources/enemies/mummy.tres",
+		"res://resources/enemies/giant_rat.tres",
+		"res://resources/enemies/fire_imp.tres",
+		"res://resources/enemies/ice_elemental.tres",
+		"res://resources/enemies/dark_cultist.tres",
+		"res://resources/enemies/shadow_assassin.tres",
+		"res://resources/enemies/wraith.tres",
+		"res://resources/enemies/gargoyle.tres",
+		"res://resources/enemies/harpy.tres",
+		"res://resources/enemies/mimic.tres",
+		"res://resources/enemies/undead_warrior.tres",
+		"res://resources/enemies/corrupted_treant.tres",
+		"res://resources/enemies/bandit.tres",
 		
 		# ELITE ENEMIES
 		"res://resources/enemies/goblin_chief.tres",
 		"res://resources/enemies/orc_shaman.tres",
 		"res://resources/enemies/golem.tres",
+		"res://resources/enemies/lycanthrope.tres",
+		"res://resources/enemies/werewolf.tres",
+		"res://resources/enemies/troll.tres",
+		"res://resources/enemies/dark_sorcerer.tres",
+		"res://resources/enemies/frost_giant.tres",
+		"res://resources/enemies/necromancer_elite.tres",
+		"res://resources/enemies/medusa.tres",
+		"res://resources/enemies/plague_bearer.tres",
+		"res://resources/enemies/vampire_lord.tres",
+		"res://resources/enemies/war_golem.tres",
+		"res://resources/enemies/berserker_champion.tres",
 		
 		# BOSSES
 		"res://resources/enemies/dragon_boss.tres",
 		"res://resources/enemies/lich_boss.tres",
-		"res://resources/enemies/demon_boss.tres"
+		"res://resources/enemies/demon_boss.tres",
+		"res://resources/enemies/kraken.tres",
+		"res://resources/enemies/void_horror.tres"
 	]
 	
 	for path in enemy_paths:

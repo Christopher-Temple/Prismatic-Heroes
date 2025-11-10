@@ -309,7 +309,6 @@ func prune_connections_safe(connections: Array, node_count: int) -> Array:
 	
 	# Verify all nodes can be reached from start AND can reach boss
 	if not verify_all_nodes_reachable(pruned, node_count):
-		print("Warning: Pruning created unreachable nodes, using full connections")
 		return connections
 	
 	return pruned

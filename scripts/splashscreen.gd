@@ -1,38 +1,90 @@
+# splashscreen.gd - Updated for separate save files
+
 extends Control
 
+const GAME_SAVE_PATH = "user://game_data.json"
+const OPTIONS_SAVE_PATH = "user://settings.json"
 
-# Path to save file
-const SAVE_FILE_PATH = "user://save_data.json"
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-# Reference to the game manager (will handle global data)
 var game_data: Dictionary = {}
+var options_data: Dictionary = {}
 var game_ready: bool = false
 
 func _ready():
-	# Show splash screen elements
 	display_splash()
-	
-	# Check and load/create save file
 	await get_tree().create_timer(0.5).timeout 
-	check_and_load_save_file()
+	check_and_load_files()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and game_ready == true:
 		transition_to_main_menu()
+
 func display_splash():
 	animation_player.play("splash_start")
 
-func check_and_load_save_file():
-	if FileAccess.file_exists(SAVE_FILE_PATH):
-		load_save_file()
+func check_and_load_files():
+	"""Load both game data and options"""
+	# Load options first (needed for audio)
+	if FileAccess.file_exists(OPTIONS_SAVE_PATH):
+		load_options_file()
 	else:
-		create_default_save_file()
-
-func load_save_file():
-	print("Save file found. Loading...")
+		create_default_options()
 	
-	var file = FileAccess.open(SAVE_FILE_PATH, FileAccess.READ)
+	# Then load game data
+	if FileAccess.file_exists(GAME_SAVE_PATH):
+		load_game_file()
+	else:
+		create_default_game_data()
+
+# ========== OPTIONS FILE ==========
+
+func load_options_file():
+	
+	var file = FileAccess.open(OPTIONS_SAVE_PATH, FileAccess.READ)
+	if file:
+		var json_string = file.get_as_text()
+		file.close()
+		
+		var json = JSON.new()
+		var parse_result = json.parse(json_string)
+		
+		if parse_result == OK:
+			options_data = json.data
+			GameManager.load_options_data(options_data)
+		else:
+			create_default_options()
+	else:
+		create_default_options()
+
+func create_default_options():
+	options_data = {
+		"masterVolume": 0.8,
+		"musicVolume": 0.7,
+		"sfxVolume": 0.9,
+		"screenShake": true,
+		"particleEffects": true,
+		"colorblindMode": false,
+		"showDamageNumbers": true
+	}
+	
+	save_options_file()
+	GameManager.load_options_data(options_data)
+
+func save_options_file():
+	var file = FileAccess.open(OPTIONS_SAVE_PATH, FileAccess.WRITE)
+	if file:
+		var json_string = JSON.stringify(options_data, "\t")
+		file.store_string(json_string)
+		file.close()
+	else:
+		return
+
+# ========== GAME DATA FILE ==========
+
+func load_game_file():
+	
+	var file = FileAccess.open(GAME_SAVE_PATH, FileAccess.READ)
 	if file:
 		var json_string = file.get_as_text()
 		file.close()
@@ -42,33 +94,15 @@ func load_save_file():
 		
 		if parse_result == OK:
 			game_data = json.data
-			print("Save file loaded successfully!")
-			
-			# Store in global autoload (we'll need to create GameManager autoload)
-			if has_node("/root/GameManager"):
-				get_node("/root/GameManager").load_game_data(game_data)
+			GameManager.load_game_data(game_data)
 		else:
-			print("Error parsing save file. Creating new save...")
-			create_default_save_file()
+			create_default_game_data()
 	else:
-		print("Error opening save file. Creating new save...")
-		create_default_save_file()
+		create_default_game_data()
 
-func create_default_save_file():
-	print("No save file found. Creating default save...")
+func create_default_game_data():
 	
 	game_data = {
-		"options": {
-			"masterVolume": 0.8,
-			"musicVolume": 0.7,
-			"sfxVolume": 0.9,
-			"screenShake": true,
-			"particleEffects": true,
-			"colorblindMode": false,
-			"showDamageNumbers": true,
-			"tutorialCompleted": false
-		},
-		
 		"gameData": {
 			"totalCoins": 0,
 			"totalPlayTime": 0,
@@ -105,26 +139,19 @@ func create_default_save_file():
 		}
 	}
 	
-	save_game_data()
-	
-	# Store in global autoload
-	if has_node("/root/GameManager"):
-		get_node("/root/GameManager").load_game_data(game_data)
-	
-	print("Default save file created!")
+	save_game_file()
+	GameManager.load_game_data(game_data)
 
-func save_game_data():
-	var file = FileAccess.open(SAVE_FILE_PATH, FileAccess.WRITE)
+func save_game_file():
+	var file = FileAccess.open(GAME_SAVE_PATH, FileAccess.WRITE)
 	if file:
 		var json_string = JSON.stringify(game_data, "\t")
 		file.store_string(json_string)
 		file.close()
-		print("Game data saved!")
 	else:
-		print("Error: Could not save game data!")
+		return
 
 func transition_to_main_menu():
-	# Change to main menu scene
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 func game_is_ready():

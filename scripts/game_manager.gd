@@ -1,9 +1,9 @@
+# game_manager.gd - Updated with separate save files
+
 extends Node
 
-
-# This is an autoload singleton that manages global game state
-
-const SAVE_FILE_PATH = "user://save_data.json"
+const GAME_SAVE_PATH = "user://game_data.json"
+const OPTIONS_SAVE_PATH = "user://settings.json"
 
 # Game data structure
 var options: Dictionary = {}
@@ -19,60 +19,100 @@ signal health_changed(current_health, max_health)
 # Battle transition data
 var pending_battle: Dictionary = {}
 
-func start_battle(is_elite: bool):
-	"""Called by map when player clicks battle node"""
-	var current_floor = current_run.get("currentFloor", 1)
-	
-	pending_battle = {
-		"is_elite": is_elite,
-		"difficulty": current_floor
-	}
-	
-	# Save map state is already in current_run
-	save_game()
-
-func get_battle_info() -> Dictionary:
-	"""Called by BattleScene on load"""
-	return pending_battle
-
-func clear_battle_info():
-	"""Clear after battle ends"""
-	pending_battle = {}
-func _ready():
-	print("GameManager initialized")
 
 func load_game_data(data: Dictionary):
 	"""Load game data from the save file"""
-	options = data.get("options", {})
 	game_data = data.get("gameData", {})
 	current_run = data.get("currentRun", {})
-	print("Game data loaded into GameManager")
+
+func load_options_data(data: Dictionary):
+	"""Load options from the settings file"""
+	options = data
+
+# ========== SAVE FUNCTIONS ==========
 
 func save_game():
-	"""Save current game state to file"""
+	"""Save game progress (characters, runs, stats)"""
 	var save_dict = {
-		"options": options,
 		"gameData": game_data,
 		"currentRun": current_run
 	}
 	
-	var file = FileAccess.open(SAVE_FILE_PATH, FileAccess.WRITE)
+	var file = FileAccess.open(GAME_SAVE_PATH, FileAccess.WRITE)
 	if file:
 		var json_string = JSON.stringify(save_dict, "\t")
 		file.store_string(json_string)
 		file.close()
-		print("Game saved successfully!")
 		return true
 	else:
-		print("Error: Could not save game!")
+		
 		return false
 
-# === COINS ===
+func save_options():
+	"""Save options/settings separately"""
+	var file = FileAccess.open(OPTIONS_SAVE_PATH, FileAccess.WRITE)
+	if file:
+		var json_string = JSON.stringify(options, "\t")
+		file.store_string(json_string)
+		file.close()
+		return true
+	else:
+		return false
+
+func load_game_from_file() -> bool:
+	"""Load game data from file"""
+	if not FileAccess.file_exists(GAME_SAVE_PATH):
+		return false
+	
+	var file = FileAccess.open(GAME_SAVE_PATH, FileAccess.READ)
+	if file:
+		var json_string = file.get_as_text()
+		file.close()
+		
+		var json = JSON.new()
+		var parse_result = json.parse(json_string)
+		
+		if parse_result == OK:
+			var data = json.data
+			game_data = data.get("gameData", {})
+			current_run = data.get("currentRun", {})
+			return true
+		else:
+			return false
+	else:
+		return false
+
+func load_options_from_file() -> bool:
+	"""Load options from file"""
+	if not FileAccess.file_exists(OPTIONS_SAVE_PATH):
+		return false
+	
+	var file = FileAccess.open(OPTIONS_SAVE_PATH, FileAccess.READ)
+	if file:
+		var json_string = file.get_as_text()
+		file.close()
+		
+		var json = JSON.new()
+		var parse_result = json.parse(json_string)
+		
+		if parse_result == OK:
+			options = json.data
+			return true
+		else:
+			return false
+	else:
+		return false
+
+# ========== COINS ===
 func get_coins() -> int:
 	return game_data.get("totalCoins", 0)
 
 func add_coins(amount: int):
 	game_data["totalCoins"] = game_data.get("totalCoins", 0) + amount
+	if not game_data["statistics"].has("totalCoinsEarned"):
+		game_data["statistics"]["totalCoinsEarned"] = 0
+	game_data["statistics"]["totalCoinsEarned"] += amount
+	AchievementManager.track_coins_accumulated()
 	coins_changed.emit(game_data["totalCoins"])
 	save_game()
 
@@ -84,7 +124,7 @@ func spend_coins(amount: int) -> bool:
 		return true
 	return false
 
-# === CHARACTERS ===
+# ========== CHARACTERS ===
 func is_character_unlocked(character_name: String) -> bool:
 	return character_name in game_data.get("unlockedCharacters", [])
 
@@ -98,7 +138,7 @@ func unlock_character(character_name: String):
 				"level": 1,
 				"currentXP": 0
 			}
-		
+		AchievementManager.track_character_unlocked()
 		character_unlocked.emit(character_name)
 		save_game()
 
@@ -124,14 +164,15 @@ func add_character_xp(character_name: String, xp_amount: float):
 		char_data["currentXP"] -= 1000
 		char_data["level"] += 1
 		character_leveled_up.emit(character_name, char_data["level"])
-		print("%s leveled up to level %d!" % [character_name, char_data["level"]])
+		if char_data["level"] == 10:
+			AchievementManager.track_character_max_level(character_name)
 	
 	save_game()
 
 func get_unlocked_characters() -> Array:
 	return game_data.get("unlockedCharacters", [])
 
-# === CURRENT RUN ===
+# ========== CURRENT RUN ===
 func start_new_run(party: Array):
 	"""Initialize a new run with selected party"""
 	current_run = {
@@ -142,7 +183,8 @@ func start_new_run(party: Array):
 		"currentFloor": 1,
 		"mapSeed": randi(),
 		"visitedNodes": [],
-		"pendingXP": {}
+		"pendingXP": {},
+		"healing_used_this_run": false
 	}
 	
 	# Initialize pending XP for party members
@@ -150,6 +192,18 @@ func start_new_run(party: Array):
 		current_run["pendingXP"][character] = 0.0
 	
 	game_data["totalRunsStarted"] += 1
+	AchievementManager.track_run_completed(true)
+	AchievementManager.track_floor_reached(current_run["currentFloor"])
+	
+	# Track party type achievement
+	var party_types = {}
+	for char_id in current_run["selectedParty"]:
+		var char_data = CharacterDatabase.get_character(char_id)
+		if char_data:
+			var type = char_data.class_type
+			party_types[type] = party_types.get(type, 0) + 1
+	
+	AchievementManager.track_run_with_party_type(party_types)
 	save_game()
 
 func end_run(success: bool):
@@ -208,7 +262,7 @@ func add_pending_xp(character_name: String, xp_amount: float):
 	if current_run["pendingXP"].has(character_name):
 		current_run["pendingXP"][character_name] += xp_amount
 
-# === STATISTICS ===
+# ========== STATISTICS ===
 func increment_stat(stat_name: String, amount: int = 1):
 	"""Increment a statistic value"""
 	if game_data["statistics"].has(stat_name):
@@ -218,10 +272,35 @@ func increment_stat(stat_name: String, amount: int = 1):
 func get_stat(stat_name: String) -> int:
 	return game_data["statistics"].get(stat_name, 0)
 
-# === OPTIONS ===
+# ========== OPTIONS ===
 func get_option(option_name: String):
 	return options.get(option_name)
 
 func set_option(option_name: String, value):
 	options[option_name] = value
+	
+	# Only save if we have valid options data
+	if not options.is_empty():
+		save_options()
+	else:
+		push_warning("Attempted to save option without loaded options data")
+
+# ========== BATTLE TRANSITION ===
+func start_battle(is_elite: bool):
+	"""Called by map when player clicks battle node"""
+	var current_floor = current_run.get("currentFloor", 1)
+	
+	pending_battle = {
+		"is_elite": is_elite,
+		"difficulty": current_floor
+	}
+	
 	save_game()
+
+func get_battle_info() -> Dictionary:
+	"""Called by BattleScene on load"""
+	return pending_battle
+
+func clear_battle_info():
+	"""Clear after battle ends"""
+	pending_battle = {}

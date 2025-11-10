@@ -75,6 +75,7 @@ func populate_available_characters():
 		card.card_clicked.connect(_on_character_selected)
 
 func _on_character_selected(character_id: String):
+	AudioManager.play_button_click()
 	"""Handle character card clicked"""
 	# Check if already selected
 	var existing_index = selected_party.find(character_id)
@@ -179,6 +180,7 @@ func get_slot_node(index: int) -> Control:
 
 func update_start_button():
 	"""Enable/disable start button based on party selection"""
+	
 	var all_selected = true
 	for char in selected_party:
 		if char == "":
@@ -189,6 +191,7 @@ func update_start_button():
 
 func _on_start_pressed():
 	"""Start the run with selected party"""
+	AudioManager.play_button_click()
 	# Create clean party array
 	var party = []
 	for char_id in selected_party:
@@ -196,10 +199,7 @@ func _on_start_pressed():
 			party.append(char_id)
 	
 	if party.size() != 3:
-		print("Error: Must select exactly 3 characters")
 		return
-	
-	print("Starting run with party: ", party)
 	
 	# Initialize the run in GameManager
 	GameManager.start_new_run(party)
@@ -212,11 +212,10 @@ func _on_start_pressed():
 	GameManager.current_run["objective"] = objective
 	GameManager.current_run["map"] = map_data
 	
-	print("Objective: ", objective["title"])
-	
 	# Go to map scene
 	get_tree().change_scene_to_file("res://scenes/map_view.tscn")
 
 func _on_back_pressed():
 	"""Return to main menu"""
+	AudioManager.play_button_click()
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

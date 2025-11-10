@@ -8,6 +8,7 @@ extends Control
 @onready var options_button = $VBoxContainer/OptionsButton
 @onready var quit_button = $VBoxContainer/QuitButton
 @onready var enemy_button: Button = $VBoxContainer/EnemyButton
+@onready var achievements_button = $VBoxContainer/AchievementsButton
 
 @onready var coins_label = $Footer/CoinsLabel
 @onready var highest_floor_label = $Footer/HighestFloorLabel
@@ -26,6 +27,7 @@ func _ready():
 	statistics_button.pressed.connect(_on_statistics_pressed)
 	options_button.pressed.connect(_on_options_pressed)
 	quit_button.pressed.connect(_on_quit_pressed)
+	achievements_button.pressed.connect(_on_achievements_pressed)
 	
 	# Setup hover effects for all buttons
 	setup_button_hover(continue_button)
@@ -38,6 +40,7 @@ func _ready():
 	
 	# Update UI based on game state
 	update_ui()
+	AudioManager.play_music("main_menu")
 
 func update_ui():
 	# Check if there's an active run
@@ -55,7 +58,11 @@ func update_ui():
 
 func setup_button_hover(button: Button):
 	"""Setup hover animations for a button"""
-	button.mouse_entered.connect(func(): on_button_hover(button, true))
+	button.mouse_entered.connect(func(): 
+		on_button_hover(button, true)
+		AudioManager.play_button_hover()
+	)
+	
 	button.mouse_exited.connect(func(): on_button_hover(button, false))
 
 func on_button_hover(button: Button, is_hovering: bool):
@@ -81,36 +88,40 @@ func add_glow_effect(button: Button):
 
 # Button callbacks
 func _on_continue_pressed():
-	print("Continue Run pressed")
+	AudioManager.play_button_click()
 	# Load the game scene with current run data
 	get_tree().change_scene_to_file("res://scenes/PartySelect.tscn")
 
 func _on_new_run_pressed():
-	print("New Run pressed")
+	AudioManager.play_button_click()
 	# Go to party selection screen
 	get_tree().change_scene_to_file("res://scenes/party_select.tscn")
+	
+func _on_achievements_pressed():
+	AudioManager.play_button_click()
+	get_tree().change_scene_to_file("res://scenes/achievements.tscn")
 
 func _on_characters_pressed():
-	print("Characters pressed")
+	AudioManager.play_button_click()
 	# Go to character collection screen
 	get_tree().change_scene_to_file("res://scenes/character_collection.tscn")
 	
 func _on_enemy_pressed():
-	print("Characters pressed")
+	AudioManager.play_button_click()
 	# Go to enemy collection screen
 	get_tree().change_scene_to_file("res://scenes/enemy_collection.tscn")
 
 func _on_statistics_pressed():
-	print("Statistics pressed")
+	AudioManager.play_button_click()
 	# Go to statistics screen
 	get_tree().change_scene_to_file("res://scenes/Statistics.tscn")
 
 func _on_options_pressed():
-	print("Options pressed")
+	AudioManager.play_button_click()
 	# Go to options screen
-	get_tree().change_scene_to_file("res://scenes/Options.tscn")
+	get_tree().change_scene_to_file("res://scenes/options.tscn")
 
 func _on_quit_pressed():
-	print("Quit pressed")
+	AudioManager.play_button_click()
 	# Quit the game
 	get_tree().quit()

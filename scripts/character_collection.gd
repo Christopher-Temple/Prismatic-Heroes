@@ -63,6 +63,7 @@ func _on_card_clicked(character_id: String):
 
 func show_unlock_confirmation(character_id: String, char_data: CharacterData):
 	"""Show dialog to confirm character unlock"""
+	AudioManager.play_sfx("coin_pickup")
 	# For now, just unlock directly. Later you can add a proper confirmation dialog
 	if GameManager.spend_coins(char_data.unlock_cost):
 		GameManager.unlock_character(character_id)
