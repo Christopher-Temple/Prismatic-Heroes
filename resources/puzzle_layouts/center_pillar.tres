@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PuzzleGridLayout" load_steps=2 format=3 uid="uid://bcxooicjtje3q"]
+
+[ext_resource type="Script" path="res://scripts/PuzzleGridLayout.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "center_pillar"
+name = "Center Tower"
+difficulty = 3
+walls = Array[Vector2i]([Vector2i(18, 8), Vector2i(19, 8), Vector2i(20, 8), Vector2i(21, 8), Vector2i(18, 9), Vector2i(19, 9), Vector2i(20, 9), Vector2i(21, 9), Vector2i(18, 10), Vector2i(19, 10), Vector2i(20, 10), Vector2i(21, 10), Vector2i(18, 11), Vector2i(19, 11), Vector2i(20, 11), Vector2i(21, 11), Vector2i(18, 12), Vector2i(19, 12), Vector2i(20, 12), Vector2i(21, 12), Vector2i(18, 13), Vector2i(19, 13), Vector2i(20, 13), Vector2i(21, 13), Vector2i(18, 14), Vector2i(19, 14), Vector2i(20, 14), Vector2i(21, 14)])
+safe_spawn_columns = Array[int]([])

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PuzzleGridLayout" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/PuzzleGridLayout.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "pillars_left_right"
+name = "Side Pillars"
+difficulty = 2
+walls = [Vector2i(5, 10), Vector2i(6, 10), Vector2i(7, 10), Vector2i(5, 11), Vector2i(6, 11), Vector2i(7, 11), Vector2i(5, 12), Vector2i(6, 12), Vector2i(7, 12), Vector2i(32, 10), Vector2i(33, 10), Vector2i(34, 10), Vector2i(32, 11), Vector2i(33, 11), Vector2i(34, 11), Vector2i(32, 12), Vector2i(33, 12), Vector2i(34, 12), Vector2i(18, 18), Vector2i(19, 18), Vector2i(20, 18), Vector2i(21, 18), Vector2i(18, 19), Vector2i(19, 19), Vector2i(20, 19), Vector2i(21, 19), Vector2i(18, 20), Vector2i(19, 20), Vector2i(20, 20), Vector2i(21, 20)]
+safe_spawn_columns = []
